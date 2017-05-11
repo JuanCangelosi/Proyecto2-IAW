@@ -15,6 +15,17 @@
               <ul class="nav navbar-nav navbar-right">
                 <button class="btn btn-outline-success my-2 my-sm-0" id="tema">Cambiar Tema</button>
               </ul>
+            @if (Route::has('login'))
+                <ul class="nav navbar-nav navbar-right">
+                    @if (Auth::check())
+                        <a href="{{ url('/home') }}">Home</a>
+                    @else
+                        <a href="{{ url('/login') }}" class="btn btn-outline-success my-2 my-sm-0">Login</a>
+                        <a href="{{ url('/register') }}" class="btn btn-outline-success my-2 my-sm-0">Register</a>
+                    @endif
+                </ul>
+            @endif
+                
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container-fluid -->
       </nav>

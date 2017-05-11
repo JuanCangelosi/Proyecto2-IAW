@@ -37,4 +37,19 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+    
+    public function handleProviderCallback()
+    {
+        $github = Socialite::driver('github')->user();
+        $user = User::whereEmail($github->getEmail())->first();    
+        if (!$user) {
+            $user = User::create([
+                'email' => $github->getEmail(),
+                'name' => $github->getName(),
+                'password' => '<no_pass>',
+            ]);
+        }
+        auth()->login($user);
+        return redirect()->to('/home');
+    }
 }

@@ -1,13 +1,10 @@
 @extends ('layouts.master')
 
-
+@section('bodyTitle')
+    Personaliza tus anteojos online!
+@endsection
 
 @section ('bodyContent')
-
-
-    <div class="container-fluid" id="hdr_container">
-        <h3 id="h_title">Personaliza tus anteojos online!</h3>
-    </div>
         <!--	Comienza panel de , que contien en una columna la tabla de edicion, y en la segunda column la tabla
             de muestreo-->
         <div class="row col-8 container-fluid" id="panel_edicion">

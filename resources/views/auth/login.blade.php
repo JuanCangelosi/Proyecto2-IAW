@@ -1,6 +1,10 @@
 @extends('layouts.master')
+
+@section('bodyTitle')
+Inicia sesión en Caniex™
+@endsection
 @section('bodyContent')
-<div class="container-fluid" id="panel_edicion">
+<div class="container-fluid panel-formulario" >
     <div class="row">
         <div class="col-md-5 col-md-offset-3">
             <div class="panel panel-default">
@@ -10,7 +14,7 @@
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label form-texto">E-Mail Address</label>
+                            <label for="email" class="col-md-4 control-label form-texto"><span class="form-texto">E-Mail Address</span></label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
@@ -24,7 +28,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label form-texto">Password</label>
+                            <label for="password" class="col-md-4 control-label form-texto"><span class="form-texto">Password</span></label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control" name="password" required>
@@ -41,7 +45,7 @@
                             <div class="col-md-6 col-md-offset-4">
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> <span class="span-form-texto">Remember Me</span>
+                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> <span class="form-texto">Remember Me</span>
                                     </label>
                                 </div>
                             </div>
@@ -56,7 +60,7 @@
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
                                     Forgot Your Password?
                                 </a>
-                                <a href="{{ route('fblogin') }}">FB Login</a>
+                                <a class="form-texto" href="{{ route('fblogin') }}">FB Login</a>
                             </div>
                         </div>
                     </form>

@@ -2516,7 +2516,6 @@ label {
   display: inline-block;
   max-width: 100%;
   margin-bottom: 5px;
-  font-weight: bold;
 }
 input[type="search"] {
   -webkit-box-sizing: border-box;
@@ -6939,7 +6938,7 @@ a.list-group-item-danger.active:focus {
 	text-shadow: 0px 2px 0px rgba(255,255,255,.3), 0px -2px 0px rgba(0,0,0,.7);
 }
 
-#panel_edicion{
+#panel_edicion, .panel-formulario{
 	background-color:#FFFFFF;
 }
 
@@ -6980,5 +6979,5 @@ body{
 }
 
 .form-texto{
-    color:white;
+    color: #FFFFFF;
 }

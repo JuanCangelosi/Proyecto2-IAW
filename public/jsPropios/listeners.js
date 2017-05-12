@@ -12,6 +12,8 @@ $("#btnRandom").click(mostrarPrecargadoRandom);
 
 $("#btn_save").click(guardarDatos);
 
+$("#btn_download").click(generarPDF);
+
 window.onload = function(){
     cargarOpciones();
     var mycookie = getCookie("css");

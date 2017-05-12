@@ -65,4 +65,5 @@ class SocialAuthController extends Controller
         ]);
 
     } */
+        
 }

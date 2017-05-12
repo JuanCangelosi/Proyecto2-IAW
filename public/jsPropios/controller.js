@@ -155,6 +155,18 @@ function guardarDatos() {
               );
 }
 
+function generarPDF() {
+    $.getJSON("jspropios/caracteristicas.json", function(json) {
+        setPrecio(json);
+        console.log(seleccion);
+        var doc = new jsPDF();
+        doc.text(35,25, 'se genero el pdf');
+        doc.save('test.pdf');
+        
+         }
+              );
+}
+
 
 function setPrecio(json){
     

@@ -15,16 +15,34 @@
               <ul class="nav navbar-nav navbar-right">
                 <button class="btn btn-outline-success my-2 my-sm-0" id="tema">Cambiar Tema</button>
               </ul>
-            @if (Route::has('login'))
-                <ul class="nav navbar-nav navbar-right">
-                    @if (Auth::check())
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ url('/login') }}" class="btn btn-outline-success my-2 my-sm-0">Login</a>
-                        <a href="{{ url('/register') }}" class="btn btn-outline-success my-2 my-sm-0">Register</a>
-                    @endif
-                </ul>
-            @endif
+                @if (Route::has('login'))
+                    <ul class="nav navbar-nav navbar-right">
+                        @if (Auth::check())
+                          <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                </a>
+
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                        <a href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Logout
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+                        @else
+                            <a href="{{ url('/login') }}" class="btn btn-outline-success my-2 my-sm-0">Login</a>
+                            <a href="{{ url('/register') }}" class="btn btn-outline-success my-2 my-sm-0">Register</a>
+                        @endif
+                    </ul>
+                @endif
                 
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container-fluid -->

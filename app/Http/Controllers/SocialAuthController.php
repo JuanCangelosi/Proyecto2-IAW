@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\User;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Socialite;
@@ -27,11 +28,17 @@ class SocialAuthController extends Controller
      */
     public function handleProviderCallback()
     {
-        $user = Socialite::driver('facebook')->user();
-        dd($user);
-        //$authUser = $this->findOrCreateUser($user);
-
-        //Auth::login($user, true);
+        $fbuser = Socialite::driver('facebook')->user();
+      //  dd($fbuser);
+        $user = User::whereEmail($fbuser->getEmail())->first();    
+        if (!$user) {
+            $user = User::create([
+                'email' => $fbuser->getEmail(),
+                'name' => $fbuser->getName(),
+                'password' => '<no_pass>',
+            ]);
+        }
+        auth()->login($user);
         
         return redirect()->to('/home');
     }

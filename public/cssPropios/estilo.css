@@ -19,8 +19,17 @@
 	 }
 	 
 	 .btn, .btn-primary{
-	font-size: 28px;
+	   font-size: 28px;
 	}
+    
+      input[type=checkbox]{
+      /* Double-sized Checkboxes */
+      -ms-transform: scale(2); /* IE */
+      -moz-transform: scale(2); /* FF */
+      -webkit-transform: scale(2); /* Safari and Chrome */
+      -o-transform: scale(2); /* Opera */
+      padding: 10px;
+        }
 }
 
 @media screen and (max-device-width : 360px){
@@ -261,5 +270,14 @@ Para celulares
 	text-align:center;
 	padding-top:40px;
 	padding-bottom:30px;
+}
+
+.span-form-texto{
+    color: white;
+    font-size:20px;
+}
+
+.label {
+    font-weight: nomal;
 }
 

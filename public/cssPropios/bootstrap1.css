@@ -5693,7 +5693,7 @@ button.list-group-item-danger.active:focus {
   border-color: #282828;
 }
 .panel-default > .panel-heading {
-  color: #888888;
+  color: white;
   background-color: #3c3c3c;
   border-color: #282828;
 }
@@ -6977,4 +6977,8 @@ a.list-group-item-danger.active:focus {
 
 body{
 	background-color:#2A2A2A;
+}
+
+.form-texto{
+    color:white;
 }

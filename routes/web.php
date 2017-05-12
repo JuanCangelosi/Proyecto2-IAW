@@ -15,7 +15,18 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/about', function() {
+
+    return view('about');
+});
+
 Auth::routes();
+
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/redirect', 'SocialAuthController@redirect');
-Route::get('/callback', 'SocialAuthController@callback');
+
+
+
+Route::get('auth/facebook', 'SocialAuthController@redirectToProvider')->name('fblogin');
+Route::get('auth/facebook/callback', 'SocialAuthController@handleProviderCallback');
+

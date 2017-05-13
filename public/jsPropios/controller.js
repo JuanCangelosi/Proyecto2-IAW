@@ -60,6 +60,8 @@ function mostrarModelo(lente, lns, front, patilla){
         
         var lente_grafico=json.lente_grafico;
         
+        window.location.hash = lente +'.'+ lns +'.'+ front +'.'+ patilla;
+        
         armar(lente_grafico);
         //habilitarOpciones(lente);
 		if(lns)

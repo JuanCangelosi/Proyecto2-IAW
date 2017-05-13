@@ -20,4 +20,13 @@ window.onload = function(){
     if(mycookie != ""){
         setCSS(mycookie);
     }
+    var hash = window.location.hash;
+    if(hash.substring(0,1) == '#'){
+        hash = hash.substring(1,hash.length);
+        var partes = hash.split('.');
+        console.log("aca se arma el lente con estos datos: "+ partes);
+        mostrarModelo(partes[0],partes[1],partes[2],partes[3]);
+        escribirModelo(partes[0]);
+        escribirDetalle(partes[0]);
+    }
 }

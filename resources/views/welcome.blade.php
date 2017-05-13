@@ -102,6 +102,7 @@
             <!--Javascripts propios-->
     <script src="jspropios/controller.js"></script>
     <script src="jspropios/listeners.js"></script>
+    <script src="jspropios/db.js"></script>
             <!--JSPDF -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
 

@@ -86,7 +86,7 @@ function mostrarModelo(lente, lns, front, patilla){
 */
 function mostrarPrecargadoRandom(){
 
-    $.getJSON("jspropios/caracteristicas.json", function(json) {
+    //$.getJSON("jspropios/caracteristicas.json", function(json) {
         var randomModelo = Math.floor((Math.random() * json.modelo.length));
         
         var randomTipoLente = Math.floor(Math.random()*json.vidrio.length);
@@ -106,8 +106,8 @@ function mostrarPrecargadoRandom(){
                       'tmp_'+json.patillas[randomTipoPatillas].tipo+'_'+json.patillas[randomTipoPatillas].color[randomColorPatilla]);
 		escribirModelo(modeloSeleccionado.modelo);
 		escribirDetalle(modeloSeleccionado.modelo);
-    }
-              );
+    //}
+    //          );
     
 }
 /*
@@ -128,7 +128,7 @@ function escribirModelo(lente){
     Agrega al detalle del documento HTML la informacion del lente seleccionado
 */
 function escribirDetalle(lenteSeleccionado) {
-     $.getJSON("jspropios/caracteristicas.json", function(json) {
+     //$.getJSON("jspropios/caracteristicas.json", function(json) {
         var i = 0,
             termine = false,
             modelos = json.modelo;
@@ -143,8 +143,8 @@ function escribirDetalle(lenteSeleccionado) {
 			 $("#detalle_lente").append('<span id="texto_detalle">'+modelos[i].detalle+'</span>');
              seleccion.detalle = modelos[i].detalle;
          }
-     }
-               );
+     //}
+        //       );
 }
 
 /*
@@ -153,16 +153,17 @@ function escribirDetalle(lenteSeleccionado) {
 */
 
 function guardarDatos() {
-    $.getJSON("jspropios/caracteristicas.json", function(json) {
+   /* $.getJSON("jspropios/caracteristicas.json", function(json) {
         setPrecio(json);
         console.log(seleccion);
          }
               );
+              */
 }
 
 function generarPDF() {
-    $.getJSON("jspropios/caracteristicas.json", function(json) {
-        setPrecio(json);
+    //$.getJSON("jspropios/caracteristicas.json", function(json) {
+        setPrecio();
         console.log(seleccion);
         var doc = new jsPDF();
         doc.text(35,10, seleccion.modelo);
@@ -171,12 +172,12 @@ function generarPDF() {
         doc.text(35,40, seleccion.marco.tipo + seleccion.marco.color);
         doc.save('test.pdf');
         
-         }
-              );
+       //  }
+         //     );
 }
 
 
-function setPrecio(json){
+function setPrecio(){
     
     var i = 0,
         termine=false,
@@ -242,7 +243,7 @@ function cargarOpciones(){
     
     //accedo a al json que posee los elemento a cargar en el html
    
-     $.getJSON("jspropios/caracteristicas.json", function(json) {
+     //$.getJSON("jspropios/caracteristicas.json", function(json) {
          //si logre entrar
          
          //cargo los modelos de lentes
@@ -277,7 +278,7 @@ function cargarOpciones(){
              cargarTamano(tamano[i]);
          }
          
-    });
+   // });
         
 }
 

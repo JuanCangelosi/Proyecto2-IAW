@@ -60,7 +60,7 @@ function mostrarModelo(lente, lns, front, patilla){
         
         var lente_grafico=json.lente_grafico;
         
-        window.location.hash = lente +'.'+ lns +'.'+ front +'.'+ patilla;
+        //window.location.hash = lente +'.'+ lns +'.'+ front +'.'+ patilla;
         
         armar(lente_grafico);
         //habilitarOpciones(lente);
@@ -115,6 +115,9 @@ function mostrarPrecargadoRandom(){
 */
 
 function escribirModelo(lente){
+    var direccion = window.location.hash;
+    var partes = direccion.split('.');
+    window.location.hash = lente + '.'+partes[1]+'.'+partes[2]+'.'+partes[3];
     $("#display_nombreElegido").remove();
     var lenteParseado= lente.replace("_", " ");
     $("#display_nombre").append('<span id="display_nombreElegido">'+lenteParseado+'</span>');
@@ -162,7 +165,10 @@ function generarPDF() {
         setPrecio(json);
         console.log(seleccion);
         var doc = new jsPDF();
-        doc.text(35,25, 'se genero el pdf');
+        doc.text(35,10, seleccion.modelo);
+        doc.text(35,20, seleccion.detalle);
+        doc.text(35,30, seleccion.vidrio.tipo + seleccion.vidrio.color);
+        doc.text(35,40, seleccion.marco.tipo + seleccion.marco.color);
         doc.save('test.pdf');
         
          }
@@ -353,6 +359,9 @@ function cargarTamano(tamano){
     Cambia el color del lente al seleccionado
 */
 function chngClscLns(color){
+    var direccion = window.location.hash;
+    var partes = direccion.split('.');
+    window.location.hash = partes[0]+'.'+ color + '.'+ partes[2]+'.'+partes[3];
 	$("#lns").attr('class', color);
     var tipoYColor= color.split("_");
     seleccion.vidrio.tipo = tipoYColor[1];
@@ -363,6 +372,9 @@ function chngClscLns(color){
     Cambia el color del marco al seleccionado
 */
 function chngFront(color){
+    var direccion = window.location.hash;
+    var partes = direccion.split('.');
+    window.location.hash = partes[0]+'.'+partes[1]+'.'+ color + '.'+ partes[3];
     $("#front").attr('class', color);
     var tipoYColor= color.split("_");
     seleccion.marco.tipo = tipoYColor[1];
@@ -374,6 +386,9 @@ function chngFront(color){
     Cambia el color de las patillas al seleccionado 
 */
 function chngPatillas(color){
+    var direccion = window.location.hash;
+    var partes = direccion.split('.');
+    window.location.hash = partes[0]+'.'+partes[1]+'.'+ partes[2]+'.' + color ;
     $("#temples").attr('class', color);
     var tipoYColor= color.split("_");
     seleccion.patillas.tipo = tipoYColor[1];

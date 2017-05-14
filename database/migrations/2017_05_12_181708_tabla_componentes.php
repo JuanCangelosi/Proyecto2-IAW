@@ -46,12 +46,15 @@ class TablaComponentes extends Migration
         });
         
         Schema::create('precargados', function (Blueprint $table) {
+            $table->increments('id');
             $table->unsignedInteger('id_modelo');
             $table->unsignedInteger('id_vidrio');
             $table->unsignedInteger('id_marco');
             $table->unsignedInteger('id_patilla');
             $table->timestamps();
         });
+        
+        
     }
 
     /**

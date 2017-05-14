@@ -30,3 +30,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('auth/facebook', 'SocialAuthController@redirectToProvider')->name('fblogin');
 Route::get('auth/facebook/callback', 'SocialAuthController@handleProviderCallback');
 
+Route::get('/customize', 'LenteController@index');

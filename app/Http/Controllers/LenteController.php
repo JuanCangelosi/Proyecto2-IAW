@@ -4,17 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Modelo;
-
-use App\User;
+use App\Lente;
 
 
 class LenteController extends Controller
 {
     
     public function index(){
-        $modelos=Modelo::all();
-        return $modelos;
+        $lentes=Lente::all();
+        return view('admin', compact('lentes'));
         /*$users=User::all();
         return $users;*/
         //return view('admin');

@@ -15,6 +15,7 @@ class TablaComponentes extends Migration
     {
         Schema::create('modelos', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('lente_id');
             $table->string('modelo');
             $table->double('precio_base');
             $table->string('detalle');
@@ -23,6 +24,7 @@ class TablaComponentes extends Migration
         
         Schema::create('vidrios', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('lente_id');
             $table->string('tipo');
             $table->double('precio');
             $table->string('color');
@@ -31,6 +33,7 @@ class TablaComponentes extends Migration
         
         Schema::create('marcos', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('lente_id');
             $table->string('tipo');
             $table->double('precio');
             $table->string('color');
@@ -39,6 +42,7 @@ class TablaComponentes extends Migration
         
         Schema::create('patillas', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('lente_id');
             $table->string('tipo');
             $table->double('precio');
             $table->string('color');

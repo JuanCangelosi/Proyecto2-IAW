@@ -15,7 +15,6 @@ class TablaComponentes extends Migration
     {
         Schema::create('modelos', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('lente_id');
             $table->string('modelo');
             $table->double('precio_base');
             $table->string('detalle');
@@ -24,38 +23,44 @@ class TablaComponentes extends Migration
         
         Schema::create('vidrios', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('lente_id');
             $table->string('tipo');
             $table->double('precio');
-            $table->string('color');
+            $table->string('colores');
             $table->timestamps();
         });
         
         Schema::create('marcos', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('lente_id');
             $table->string('tipo');
             $table->double('precio');
-            $table->string('color');
+            $table->string('colores');
             $table->timestamps();
         });
         
         Schema::create('patillas', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('lente_id');
             $table->string('tipo');
             $table->double('precio');
-            $table->string('color');
+            $table->string('colores');
             $table->timestamps();
         });
         
-        Schema::create('precargados', function (Blueprint $table) {
+        Schema::create('tamanos', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('medida');
+            $table->string('ancho_puente');
+            $table->string('ancho_lente');
+            $table->timestamps();
+        });
+        
+       /* Schema::create('precargados', function (Blueprint $table) {
             $table->unsignedInteger('id_modelo');
             $table->unsignedInteger('id_vidrio');
             $table->unsignedInteger('id_marco');
             $table->unsignedInteger('id_patilla');
             $table->timestamps();
         });
+        */
     }
 
     /**
@@ -69,6 +74,7 @@ class TablaComponentes extends Migration
         Schema::drop('vidrios');
         Schema::drop('marcos');
         Schema::drop('patillas');
-        Schema::drop('precargados');
+        Schema::drop('tamanos');
+       // Schema::drop('precargados');
     }
 }

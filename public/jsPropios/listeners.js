@@ -14,7 +14,8 @@ $("#btn_save").click(guardarDatos);
 
 $("#btn_download").click(generarPDF);
 
-window.onload = function(){
+//window.onload = function(){
+function inicializar(){
     cargarOpciones();
     var mycookie = getCookie("css");
     if(mycookie != ""){

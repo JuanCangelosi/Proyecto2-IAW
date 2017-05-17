@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Lente extends Model
+class Caracteristicas extends Model
 {
-    public function modelo(){
+     public function modelo(){
 		return $this->hasMany('\App\Modelo');
 	}
 	
@@ -21,5 +21,4 @@ class Lente extends Model
 	 public function vidrio(){
 		return $this->hasMany('\App\Vidrio');
 	}	
-    
 }

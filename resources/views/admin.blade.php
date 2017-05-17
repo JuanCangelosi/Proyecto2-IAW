@@ -6,7 +6,8 @@
 
 @section ('bodyContent')
     <div class="container-fluid panel-formulario" style="font-family: Arial">
-        @foreach ($lentes as $lente)
+    <script>log(<?  =>) </script>
+        <!--     @foreach ($lentes as $lente)
 
             <li>{{  $lente->lente_id  }}</li>
             <li>{{  $lente->modelo }}</li>
@@ -14,7 +15,7 @@
             <li>{{  $lente->patilla  }}</li>
             <li>{{  $lente->marco  }}</li>
             <br>
-        @endforeach
+        @endforeach -->
     </div>
 
 @endsection

@@ -6,6 +6,7 @@ use App\Vidrio;
 use App\Marco;
 use App\Patilla;
 use App\Lente;
+use App\Tamano;
 
 class LentesSeeder extends Seeder
 {
@@ -20,30 +21,30 @@ class LentesSeeder extends Seeder
         DB::table('patillas')->delete();
         DB::table('marcos')->delete();
         DB::table('vidrios')->delete();
-        DB::table('lentes')->delete();
+        DB::table('tamanos')->delete();
+        //DB::table('lentes')->delete();
         
         
-        Modelo::create(['lente_id' => '1', 'modelo' => 'Original_Wayfarer', 'precio_base' => '100', 'detalle' => 'TBD']);
-        Modelo::create(['lente_id' => '2', 'modelo' => 'Aviator', 'precio_base' => '101', 'detalle' => 'TBD']);
+        Modelo::create(['modelo' => 'Original_Wayfarer', 'precio_base' => '100', 'detalle' => 'TBD']);
+        Modelo::create(['modelo' => 'Aviator', 'precio_base' => '101', 'detalle' => 'TBD']);
         
-        Vidrio::create(['lente_id' => '1', 'tipo' => 'classic', 'precio' => '100', 'color' => '000000']);
-        Vidrio::create(['lente_id' => '1', 'tipo' => 'gradient','precio' => '100', 'color' => 'f44336']);
+        Vidrio::create(['tipo' => 'classic', 'precio' => '100', 'colores' => serialize(array('000000','FFFFFF'))]);
+        Vidrio::create(['tipo' => 'gradient','precio' => '100', 'colores' => serialize(array('000000','FFFFFF'))]);
 		
-        Vidrio::create(['lente_id' => '2', 'tipo' => 'classic', 'precio' => '100', 'color' => '000000']);
-        Vidrio::create(['lente_id' => '2', 'tipo' => 'gradient','precio' => '100', 'color' => 'f44336']);
+        Vidrio::create(['tipo' => 'classic', 'precio' => '100', 'colores' => serialize(array('000000','FFFFFF'))]);
+        Vidrio::create(['tipo' => 'gradient','precio' => '100', 'colores' => serialize(array('000000','FFFFFF'))]);
         
-        Marco::create(['lente_id' => '1', 'tipo' => 'classic', 'precio' => '100', 'color' => '000000']);
-        Marco::create(['lente_id' => '1', 'tipo' => 'trendy', 'precio' => '200', 'color' => 'f44336']);
-        Marco::create(['lente_id' => '2', 'tipo' => 'classic', 'precio' => '100', 'color' => '000000']);
-        Marco::create(['lente_id' => '2', 'tipo' => 'trendy', 'precio' => '200', 'color' => 'f44336']);
+        Marco::create(['tipo' => 'classic', 'precio' => '100', 'colores' => serialize(array('000000','FFFFFF'))]);
+        Marco::create(['tipo' => 'trendy', 'precio' => '200', 'colores' => serialize(array('000000','FFFFFF'))]);
         
-        Patilla::create(['lente_id' => '1', 'tipo' => 'classic', 'precio' => '100', 'color' => '000000']);
-        Patilla::create(['lente_id' => '1', 'tipo' => 'trendy', 'precio' => '100', 'color' => 'f44336']);
-        Patilla::create(['lente_id' => '2', 'tipo' => 'classic', 'precio' => '100', 'color' => '000000']);
-         Patilla::create(['lente_id' => '2', 'tipo' => 'trendy', 'precio' => '100', 'color' => 'f44336']);
+        Patilla::create(['tipo' => 'classic', 'precio' => '100', 'colores' => serialize(array('000000','FFFFFF'))]);
+        Patilla::create(['tipo' => 'trendy', 'precio' => '100', 'colores' => serialize(array('000000','FFFFFF'))]);
+        
+        Tamano::create(['medida' => 'pequeno', 'ancho_lente' => '100', 'ancho_puente' => '100']);
+        Tamano::create(['medida' => 'grande', 'ancho_lente' => '100', 'ancho_puente' => '100']);
 		
-		Lente::create(['lente_id' => '1']);
-        Lente::create(['lente_id' => '2']);
+		//Lente::create(['lente_id' => '1']);
+        //Lente::create(['lente_id' => '2']);
         
     }
 }

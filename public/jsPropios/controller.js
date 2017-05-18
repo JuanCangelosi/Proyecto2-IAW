@@ -162,7 +162,6 @@ function guardarDatos() {
 function generarPDF() {
     //$.getJSON("jspropios/caracteristicas.json", function(json) {
         setPrecio(json);
-        console.log(seleccion);
        // create a document and pipe to a blob
         var doc = new PDFDocument();
         var stream = doc.pipe(blobStream());

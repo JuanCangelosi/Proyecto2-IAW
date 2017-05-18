@@ -51,7 +51,7 @@
                 <!-- Menu de seleccion de vidrios (lentes)-->
               <h3 data-toggle="collapse" href="#collapseLentes" aria-expanded="false" aria-controls="collapseLentes"><span class="caret-right" id="tab"></span> Lentes </h3>
               <div class="collapse collapse-color container-fluid" id="collapseLentes">
-                <p id="mostrarLentes">
+                <p id="mostrarLentes" class="mostarAnteojos">
 
 
                 </p>
@@ -60,7 +60,7 @@
                 <!-- Menu de seleccion de marcos -->
               <h3 data-toggle="collapse" href="#collapseMarcos" aria-expanded="false" aria-controls="collapseMarcos"><span class="caret-right" id="tab"></span>Marcos</h3>
               <div class="collapse container-fluid" id="collapseMarcos">
-                <p id="mostrarMarcos">
+                <p id="mostrarMarcos" class="mostarAnteojos">
 
                 </p>
               </div>
@@ -68,14 +68,14 @@
                 <!-- Menu de seleccion de patillas-->
               <h3 data-toggle="collapse" href="#collapsePatillas" aria-expanded="false" aria-controls="collapsePatillas"><span class="caret-right" id="tab"></span>Patillas</h3>
               <div class="collapse container-fluid" id="collapsePatillas">
-                 <p id="mostrarPatillas">
+                 <p id="mostrarPatillas" class="mostarAnteojos">
 
                 </p>
               </div>
 
                 <!-- Menu de seleccion de tamaños-->
               <h3 data-toggle="collapse" href="#collapseTamanos" aria-expanded="false" aria-controls="collapseTamanos"><span class="caret-right" id="tab"></span>Tamaño</h3>
-              <div class="collapse" id="collapseTamanos">
+              <div class="collapse" id="collapseTamanos" class="mostarAnteojos">
                  <p id="mostrarTamano">
                 </p>
               </div>
@@ -88,7 +88,7 @@
             <div class=" col-9 col-md-9" id="columna2">
                 <div class="row">
                     <div class="col-4 col-md-7" id="col_display_nombre">
-                        <p id="display_nombre">Modelo: <span id="display_nombreElegido"></span></p>
+                        <p id="display_nombre"> Modelo: <span id="display_nombreElegido"></span></p>
                     </div>
                     <div class="col-1 col-md-0 btn btn-info btn-dropdown"><span class="glyphicon glyphicon-info-sign" alt="Detalle de anteojo elegido"aria-hidden="true"></span>
                           <div class="btn-dropdown-content" id="detalle_lente"><span id="texto_detalle">No hay anteojo seleccionado</span></div>
@@ -102,7 +102,7 @@
                 </div>
 
                 <div class="row col-md-9">
-                    <div class="col-md-3 center-btn btn btn-primary " id="btn_load">Cargar
+                    <div class="col-md-3 center-btn btn btn-primary" id="btn_load">Cargar
                     </div>
                     <div class="col-md-3 center-btn btn btn-primary" id="btn_save">Guardar
                     </div>

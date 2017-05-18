@@ -33,6 +33,10 @@
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
+                                     @if (Auth::user()->isAdmin())
+                                         <a href="{{ url('/loadprecargado') }}" class="btn btn-outline-success my-2 my-sm-0">Cargar precargado</a>
+                                    @endif
+                                    
                                 </ul>
                             </li>
                         @else

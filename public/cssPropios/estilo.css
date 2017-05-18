@@ -20,6 +20,7 @@
 	 
 	 .btn, .btn-primary{
 	   font-size: 28px;
+    
 	}
     
       input[type=checkbox]{
@@ -51,16 +52,19 @@
 
 }
 
+#panel_edicion, .panel-formulario{
+    margin-top:10px;
+    padding-top:30px;
+}
+
 #logo{
 	width:	100%;
 	height: 100%;
 }
 
-#panel_edicion, .panel-formulario{
-	margin-top:30px;
-	padding-top:30px;
-    margin:auto;
-	font-family:"Mohave";
+
+.mostarAnteojos{
+    font-family:"Mohave";
 }
 
 .navbar-brand{
@@ -70,7 +74,6 @@
 	margin: 10px 5px 0 0;
 
 }
-
 
 .navbar-brand,
 .navbar-nav li a {
@@ -141,6 +144,7 @@
 }
 
 #display_nombre{
+    font-family: "Mohave";
 	margin-top:10px;
 }
 
@@ -288,4 +292,9 @@ Para celulares
 .panel-heading{
     font-size:40px;
 }
+
+ .btn, .btn-primary{
+    font-family: Mohave;
+}
+
 

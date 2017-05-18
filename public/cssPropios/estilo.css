@@ -185,22 +185,29 @@
 	margin-top: 5px;
 }
 
-#btn_load{
+.btn_color1{
 	background-color: #139675;
 }
 
-#btn_load:hover{
+.btn_color1:hover{
 	background-color: #006231;
 }
 
-#btn_download{
+.btn_color3{
 	background-color: #f44336;
 }
 
-#btn_download:hover{
+.btn_color3:hover{
 	background-color: #E52A1F;
 }
 
+.btn_color4{
+	background-color: #C673B3;
+}
+
+.btn_color4:hover{
+	background-color: #A5478F;
+}
 
 #table_acc{
 	margin: auto;
@@ -297,4 +304,10 @@ Para celulares
     font-family: Mohave;
 }
 
+.form-texto-2{
+    padding-top: 15px;
+}
 
+.btn-shortspace{
+    font-size: normal;
+}

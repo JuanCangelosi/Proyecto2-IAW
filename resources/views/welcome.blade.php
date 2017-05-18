@@ -101,13 +101,28 @@
                     </svg> 
                 </div>
 
+                
+                    @if (Auth::check())
+                        @if (Auth::user()->isAdmin())
+                <div class="row col-md-10">
+                        <div class="col-md-3 center-btn btn btn-primary btn_color4 btn-shortspace">Guardar Como Precargado
+                        </div>
+                        <div class="col-md-2 center-btn btn btn-primary btn_color1">Cargar
+                        </div>
+                        <div class="col-md-2 center-btn btn btn-primary" id="btn_save">Guardar
+                        </div>
+                        <div class="col-md-2 center-btn btn btn-primary btn_color3">Descargar
+                        </div>
+                        @endif
+                    @else
                 <div class="row col-md-9">
-                    <div class="col-md-3 center-btn btn btn-primary" id="btn_load">Cargar
-                    </div>
-                    <div class="col-md-3 center-btn btn btn-primary" id="btn_save">Guardar
-                    </div>
-                    <div class="col-md-3 center-btn btn btn-primary" id="btn_download">Descargar
-                    </div>
+                        <div class="col-md-3 center-btn btn btn-primary btn_color1">Cargar
+                        </div>
+                        <div class="col-md-3 center-btn btn btn-primary" id="btn_save">Guardar
+                        </div>
+                        <div class="col-md-3 center-btn btn btn-primary btn_color3">Descargar
+                        </div>
+                    @endif
                 </div>	
             </div>
             <!--	termina columna de muestreo	-->

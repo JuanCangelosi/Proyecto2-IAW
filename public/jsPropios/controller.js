@@ -1,8 +1,3 @@
-/*
-    Funcion encargada de armar el SVG de los Lentes
-    Recibe un JSON con la informacion grafica del lente a armar y en base a eso agrega los atributos al SVG
-*/
-
 var seleccion = {es_especial: "NO",
 		modelo: "", 
 		precio_base: "",
@@ -13,6 +8,10 @@ var seleccion = {es_especial: "NO",
 		patillas: {tipo: "", color: "", precio: "", grabado:[]
 					},
 	}
+/*
+    Funcion encargada de armar el SVG de los Lentes
+    Recibe un JSON con la informacion grafica del lente a armar y en base a eso agrega los atributos al SVG
+*/
 
 function armar(lente_grafico){ 
     $("#GlassesSVG").remove();
@@ -90,20 +89,20 @@ function mostrarPrecargadoRandom(){
         var randomModelo = Math.floor((Math.random() * json.modelo.length));
         
         var randomTipoLente = Math.floor(Math.random()*json.vidrio.length);
-        var randomColorLente = Math.floor((Math.random() * json.vidrio[randomTipoLente].color.length));
+        var randomColorLente = Math.floor((Math.random() * json.vidrio[randomTipoLente].colores.length));
         
         var randomTipoMarco = Math.floor(Math.random()*json.marco.length);
-        var randomColorMarco = Math.floor((Math.random() * json.marco[randomTipoMarco].color.length));
+        var randomColorMarco = Math.floor((Math.random() * json.marco[randomTipoMarco].colores.length));
         
         var randomTipoPatillas = Math.floor(Math.random()*json.patillas.length);
-        var randomColorPatilla = Math.floor((Math.random() * json.patillas[randomTipoPatillas].color.length));
+        var randomColorPatilla = Math.floor((Math.random() * json.patillas[randomTipoPatillas].colores.length));
         
         
         var modeloSeleccionado= json.modelo[randomModelo];
         mostrarModelo(modeloSeleccionado.modelo,
-                      'lns_'+json.vidrio[randomTipoLente].tipo+'_'+json.vidrio[randomTipoLente].color[randomColorLente],
-                      'frnt_'+json.marco[randomTipoMarco].tipo+'_'+json.marco[randomTipoMarco].color[randomColorMarco], 
-                      'tmp_'+json.patillas[randomTipoPatillas].tipo+'_'+json.patillas[randomTipoPatillas].color[randomColorPatilla]);
+                      'lns_'+json.vidrio[randomTipoLente].tipo+'_'+json.vidrio[randomTipoLente].colores[randomColorLente],
+                      'frnt_'+json.marco[randomTipoMarco].tipo+'_'+json.marco[randomTipoMarco].colores[randomColorMarco], 
+                      'tmp_'+json.patillas[randomTipoPatillas].tipo+'_'+json.patillas[randomTipoPatillas].colores[randomColorPatilla]);
 		escribirModelo(modeloSeleccionado.modelo);
 		escribirDetalle(modeloSeleccionado.modelo);
     //}
@@ -169,6 +168,8 @@ function generarPDF() {
         doc.text(35,20, seleccion.detalle);
         doc.text(35,30, seleccion.vidrio.tipo + seleccion.vidrio.color);
         doc.text(35,40, seleccion.marco.tipo + seleccion.marco.color);
+        var svgText = $("display_anteojos");
+        var svgAsText = new XMLSerializer().serializeToString(svgText.documentElement);
         doc.save('test.pdf');
         
     //     }

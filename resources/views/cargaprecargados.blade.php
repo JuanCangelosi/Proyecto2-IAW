@@ -39,7 +39,7 @@
                             <label class="form-texto-2" for="descripcionModelo">Descripcion del modelo</label>
                             <textarea class="form-control" id="descripcionModelo" rows="3"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary btn_color1">Cargar</button>
+                        <button type="submit" class="btn btn-primary btn_color1" onclick="agregarModelo();">Cargar</button>
 
                   </div>
 
@@ -52,15 +52,15 @@
                         </div>
                         <label for="example-text-input" class="col-2 col-form-label form-texto-2">Tipo</label>
                         <div class="col-10">
-                                <input class="form-control" type="text" value="Original_Wayfarer" id="nombre_modelo">
+                                <input class="form-control" type="text" id="TipoVidrio">
                         </div>
 
                         <label for="example-text-input" class="col-2 col-form-label form-texto-2">Color HEXA</label>
                         <div class="col-10">
-                                <input class="form-control" type="text" value="Original_Wayfarer" id="nombre_modelo">
+                                <input class="form-control" type="text" id="ColorVidrio">
                         </div>
                         <br>
-                        <button type="submit" class="btn btn-primary btn_color1">Cargar</button>
+                        <button type="submit" class="btn btn-primary btn_color1" onclick="agregarVidrio();">Cargar</button>
                     </p>
                   </div>
 
@@ -73,15 +73,15 @@
                         </div>
                         <label for="example-text-input" class="col-2 col-form-label form-texto-2">Tipo</label>
                         <div class="col-10">
-                                <input class="form-control" type="text" value="Original_Wayfarer" id="nombre_modelo">
+                                <input class="form-control" type="text" id="TipoMarco">
                         </div>
 
                         <label for="example-text-input" class="col-2 col-form-label form-texto-2">Color HEXA</label>
                         <div class="col-10">
-                                <input class="form-control" type="text" value="Original_Wayfarer" id="nombre_modelo">
+                                <input class="form-control" type="text" id="ColorMarco">
                         </div>
                       <br>
-                        <button type="submit" class="btn btn-primary btn_color1 ">Cargar</button>
+                        <button type="submit" class="btn btn-primary btn_color1 " onclick="agregarMarco();">Cargar</button>
                     </p>
                   </div>
 
@@ -94,14 +94,14 @@
                         </div>
                         <label for="example-text-input" class="col-2 col-form-label form-texto-2">Tipo</label>
                         <div class="col-10">
-                                <input class="form-control" type="text" value="Original_Wayfarer" id="nombre_modelo">
+                                <input class="form-control" type="text" id="TipoPatilla">
                         </div>
                         <label for="example-text-input" class="col-2 col-form-label form-texto-2">Color HEXA</label>
                         <div class="col-10">
-                                <input class="form-control" type="text" value="Original_Wayfarer" id="nombre_modelo">
+                                <input class="form-control" type="text"  id="ColorPatilla">
                         </div>
                       <br>
-                        <button type="submit" class="btn btn-primary btn_color1 ">Cargar</button>
+                        <button type="submit" class="btn btn-primary btn_color1 " onclick="agregarPatilla();">Cargar</button>
                     </p>
                   </div>
 
@@ -111,19 +111,19 @@
                      <p id="mostrarTamano">
                          <label for="example-text-input" class="col-2 col-form-label form-texto-2">Nombre tamano</label>
                         <div class="col-10">
-                                <input class="form-control" type="text" value="Original_Wayfarer" id="nombre_modelo">
+                                <input class="form-control" type="text" id="nombre_tamano">
                         </div>
 
                         <label for="example-text-input" class="col-2 col-form-label form-texto-2">Ancho Puente</label>
                         <div class="col-10">
-                                <input class="form-control" type="text" value="Original_Wayfarer" id="nombre_modelo">
+                                <input class="form-control" type="number" id="AnchoPuente">
                         </div>
                         <label for="example-text-input" class="col-2 col-form-label form-texto-2">Ancho Lente</label>
                         <div class="col-10">
-                                <input class="form-control" type="text" value="Original_Wayfarer" id="nombre_modelo">
+                                <input class="form-control" type="number" id="AnchoLente">
                         </div>
                       <br>
-                        <button type="submit" class="btn btn-primary btn_color1">Cargar</button>
+                        <button type="submit" class="btn btn-primary btn_color1" onclick="agregarTamano();">Cargar</button>
                     </p>
 
                     </div>

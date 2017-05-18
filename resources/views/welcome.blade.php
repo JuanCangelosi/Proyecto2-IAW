@@ -111,7 +111,7 @@
                         </div>
                         <div class="col-md-2 center-btn btn btn-primary" id="btn_save">Guardar
                         </div>
-                        <div class="col-md-2 center-btn btn btn-primary btn_color3">Descargar
+                        <div class="col-md-2 center-btn btn btn-primary btn_color3" id="btn_download">Descargar
                         </div>
                         @endif
                     @else
@@ -120,7 +120,7 @@
                         </div>
                         <div class="col-md-3 center-btn btn btn-primary" id="btn_save">Guardar
                         </div>
-                        <div class="col-md-3 center-btn btn btn-primary btn_color3">Descargar
+                        <div class="col-md-3 center-btn btn btn-primary btn_color3" id="btn_download">Descargar
                         </div>
                     @endif
                 </div>	
@@ -137,8 +137,9 @@
     <script src="jspropios/controller.js"></script>
     <script src="jspropios/listeners.js"></script>
     <script src="jspropios/com.js"></script>
-            <!--JSPDF -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
+            <!--JS a PDF -->
+    <script src="js/pdfkit.js"></script>
+    <script src="js/blob-stream.js"></script>
 
 
 @endsection

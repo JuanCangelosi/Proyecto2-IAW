@@ -163,14 +163,52 @@ function generarPDF() {
     //$.getJSON("jspropios/caracteristicas.json", function(json) {
         setPrecio(json);
         console.log(seleccion);
-        var doc = new jsPDF();
-        doc.text(35,10, seleccion.modelo);
-        doc.text(35,20, seleccion.detalle);
-        doc.text(35,30, seleccion.vidrio.tipo + seleccion.vidrio.color);
-        doc.text(35,40, seleccion.marco.tipo + seleccion.marco.color);
-        var svgText = $("display_anteojos");
-        var svgAsText = new XMLSerializer().serializeToString(svgText.documentElement);
-        doc.save('test.pdf');
+       // create a document and pipe to a blob
+        var doc = new PDFDocument();
+        var stream = doc.pipe(blobStream());
+
+        // draw some text
+        doc.fontSize(25)
+           .text('Lente Seleccionado:'+seleccion.modelo, 100, 80);
+
+        // an SVG path
+        doc.scale(0.5,0.5)
+           //.translate(353.96, 143.98)
+           .path($('#front').attr('d'))
+           .fill('red', 'even-odd')
+           .restore();
+        doc.scale(0.5,0.5)
+           .translate(480.32, 109.34)
+           .path($('#temples').attr('d'))
+           .fill('red', 'even-odd')
+           .restore();
+        doc.scale(0.5,0.5)
+           //.translate(299.74, 121.6)
+           .path($('#lns').attr('d'))
+           .fill('red', 'even-odd')
+           .restore();
+    
+        doc.end();
+        var saveData = (function () {
+            var a = document.createElement("a");
+            document.body.appendChild(a);
+            a.style = "display: none";
+            return function (blob, fileName) {
+                var url = window.URL.createObjectURL(blob);
+                a.href = url;
+                a.download = fileName;
+                a.click();
+                window.URL.revokeObjectURL(url);
+            };
+        }());
+    
+        stream.on('finish', function() {
+
+        var blob = stream.toBlob('application/pdf');
+        saveData(blob, 'aa.pdf');
+
+            // iframe.src = stream.toBlobURL('application/pdf');
+        });
         
     //     }
     //          );

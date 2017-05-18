@@ -169,23 +169,29 @@ function generarPDF() {
 
         // draw some text
         doc.fontSize(25)
-           .text('Lente Seleccionado:'+seleccion.modelo, 100, 80);
+           .text('Modelo:'+seleccion.modelo, 100, 80);
+        doc.fontSize(15)
+           .text('Detalle:'+seleccion.detalle, 100, 120);
+        doc.fontSize(15)
+           .text('Precio Total: $'+(seleccion.precio_base+seleccion.vidrio.precio+seleccion.marco.precio+seleccion.patillas.precio), 100, 140);
+        doc.fontSize(15)
+           .text('Tipo de Vidrio: '+seleccion.vidrio.tipo, 100, 160);
+        doc.fontSize(15)
+           .text('Tipo de Marco: '+seleccion.marco.tipo, 100, 180);
+        doc.fontSize(15)
+           .text('Tipo de Patilla: '+seleccion.patillas.tipo, 100, 200);
 
         // an SVG path
         doc.scale(0.5,0.5)
-           //.translate(353.96, 143.98)
+           .translate(300, 500)
            .path($('#front').attr('d'))
-           .fill('red', 'even-odd')
-           .restore();
-        doc.scale(0.5,0.5)
-           .translate(480.32, 109.34)
+           .fill(seleccion.marco.color, 'even-odd')
            .path($('#temples').attr('d'))
-           .fill('red', 'even-odd')
-           .restore();
-        doc.scale(0.5,0.5)
-           //.translate(299.74, 121.6)
+            .fill(seleccion.patillas.color, 'even-odd')
            .path($('#lns').attr('d'))
-           .fill('red', 'even-odd')
+            .opacity(0.8)
+           .fill(seleccion.vidrio.color, 'even-odd')
+           .clip()
            .restore();
     
         doc.end();

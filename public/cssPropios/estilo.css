@@ -270,15 +270,22 @@ Para celulares
 }
 
 .form-texto{
-    font-size:30px;
+    font-family:"Roboto";
+    font-weight: normal;
+    font-size:normal;
     margin:auto;
 }
 
 .label {
-    font-weight: nomal;
+    font-weight: normal;
     font-weight: 100%;
+}
+
+.form-texto-cb{
+    font-size:80%;
 }
 
 .panel-heading{
     font-size:40px;
 }
+

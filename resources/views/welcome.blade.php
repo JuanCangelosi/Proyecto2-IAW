@@ -1,5 +1,24 @@
 @extends ('layouts.master')
 
+@section ('navbar-toggleIzq') 
+<ul class="navbar-brand">
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+            Opciones <span class="caret"></span>
+        </a>
+
+        <ul class="dropdown-menu" role="menu">
+            <li>
+                <button class="btn btn-outline-success my-2 my-sm-0" id="btnRandom" onclick="mostrarPrecargadoRandom()">Cargar Random </button>
+            </li>
+            <li>
+                <span>Precargados </span> 
+            </li>
+        </ul>
+    </li>
+</ul>
+
+@endsection
 @section('bodyTitle')
     Personaliza tus anteojos online!
 @endsection

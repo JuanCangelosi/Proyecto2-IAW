@@ -6,8 +6,9 @@
     <title>Caniex™ Anteojos</title>
     <link rel="shortcut icon" type="images/CaniexIcon.png" href="images/CaniexIcon.png" />
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-social.css" rel="stylesheet">
 
     <!-- Estilos Propios -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
     <link id="cssPropio" href="csspropios/bootstrap1.css" rel="stylesheet">
     <link id="cssEstilo" href="csspropios/estilo.css" rel="stylesheet">

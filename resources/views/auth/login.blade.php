@@ -45,7 +45,7 @@ Inicia sesión en Caniex™
                             <div class="col-md-6 col-md-offset-4">
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> <span class="form-texto">Remember Me</span>
+                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> <span class="form-texto form-texto-cb">Remember Me</span>
                                     </label>
                                 </div>
                             </div>
@@ -59,8 +59,8 @@ Inicia sesión en Caniex™
 
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
                                     Forgot Your Password?
-                                </a>
-                                <a class="form-texto" href="{{ route('fblogin') }}">FB Login</a>
+                                </a>         
+                                 <a class="btn btn-block btn-social btn-facebook" href="{{ route('fblogin') }}"> Login in with Facebook</a>
                             </div>
                         </div>
                     </form>

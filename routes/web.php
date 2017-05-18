@@ -31,3 +31,6 @@ Route::get('auth/facebook', 'SocialAuthController@redirectToProvider')->name('fb
 Route::get('auth/facebook/callback', 'SocialAuthController@handleProviderCallback');
 
 Route::get('/customize', 'LenteController@index');
+
+
+Route::get('/loadprecargado', 'LoadPrecargadoController@index');

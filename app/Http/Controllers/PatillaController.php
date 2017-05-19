@@ -3,17 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-user App\Patilla;
+use App\Patilla;
 
 class PatillaController extends Controller
 {
     public function cargarPatilla(Request $request){
+        $request=$request->all();
         $patilla = new Patilla;
-        $patilla->tipo = $request->tipo;
-        $patilla->color = serialize($request->color);
+        $patilla->tipo = $request['TipoPatilla'];
+        $patilla->precio='50';
+        $patilla->colores = serialize(array('000000'));
         $patilla->save();
+        return redirect('/loadprecargado')->with('message', 'Se ha cargado Patilla con exito.');
     }
-    
+    /*
     public function modificarPatilla(Request $request){
         $patilla = Patilla::find(request->id);
         $patilla->tipo = $request->tipo;
@@ -29,5 +32,5 @@ class PatillaController extends Controller
     
      public function getPatilla(){
         
-    }
+    }*/
 }

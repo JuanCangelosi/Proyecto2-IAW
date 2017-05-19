@@ -16,6 +16,11 @@
 
     <br>
     <div class="row col-md-8 col-md-offset-2 panel-fomulario">
+    @if(Session::has('message'))
+        <div class="alert alert-info">
+            {{ Session::get('message') }}
+        </div>
+    @endif
         <div class="panel panel-default">
             <div class="panel-heading headTextForm">Administrador</div>
             <div id="panelmostraropciones">

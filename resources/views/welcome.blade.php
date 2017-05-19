@@ -24,9 +24,11 @@
 
 @endsection
 
-@section ('navbar-toggleIzq') 
- @if (Auth::check()&&Auth::user()->isAdmin())
+@section ('navbar-toggleDer') 
+ @if (Auth::check())
+    @if(Auth::user()->isAdmin())
      <a href="{{ url('/loadprecargado') }}" class="btn btn-outline-success my-2 my-sm-0">Cargar precargado</a>
+    @endif
 @endif
 @endsection
 

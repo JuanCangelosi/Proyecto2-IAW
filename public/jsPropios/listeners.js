@@ -17,10 +17,6 @@ $("#btn_download").click(generarPDF);
 //window.onload = function(){
 function inicializar(){
     cargarOpciones();
-    var mycookie = getCookie("css");
-    if(mycookie != ""){
-        setCSS(mycookie);
-    }
     var hash = window.location.hash;
     if(hash.substring(0,1) == '#'){
         hash = hash.substring(1,hash.length);

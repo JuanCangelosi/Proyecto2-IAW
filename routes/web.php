@@ -36,3 +36,7 @@ Route::get('/customize', 'LenteController@index');
 Route::get('/loadprecargado', 'LoadPrecargadoController@index');
 
 Route::post('adminpanel/addmodelo', 'ModeloController@cargarModelo');
+Route::post('adminpanel/addvidrio', 'ModeloController@cargarVidrio');
+Route::post('adminpanel/addmarco', 'ModeloController@cargarMarco');
+Route::post('adminpanel/addpatilla', 'ModeloController@cargarPatilla');
+Route::post('adminpanel/addtamano', 'ModeloController@cargarTamano');

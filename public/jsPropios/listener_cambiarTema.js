@@ -15,6 +15,13 @@ function getCookie(cname) {
 
 $("#tema").click(cambiarCSS);
 
+$(function() {
+    var mycookie = getCookie("css");
+    if(mycookie != ""){
+        setCSS(mycookie);
+    }
+})
+
 function cambiarCSS(e){
     var addressValue = $("#cssPropio").attr("href");
     if(addressValue.includes("1")){

@@ -5,7 +5,7 @@ $("#btnModificarCar").click(mostrarModificarCaracteristicas);
 $("#btnModificarPrecarg").click(mostrarModificarPrecargados);
 
 function mostrarAgregarCaracteristicas(){
-    $("#panelmostraropciones").load("htmlDinamicos/agregarCaracteristicas.html");
+    $("#panelmostraropciones").load("htmlDinamicos/agregarCaracteristicas.blade.php");
 }
 
 function mostrarModificarCaracteristicas(){

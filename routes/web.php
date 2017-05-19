@@ -34,3 +34,5 @@ Route::get('/customize', 'LenteController@index');
 
 
 Route::get('/loadprecargado', 'LoadPrecargadoController@index');
+
+Route::post('/addmodelo', 'ModeloController@cargarModelo');

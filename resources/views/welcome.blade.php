@@ -12,13 +12,24 @@
                 <button class="btn btn-outline-success my-2 my-sm-0" id="btnRandom" onclick="mostrarPrecargadoRandom()">Cargar Random </button>
             </li>
             <li>
-                <span>Precargados </span> 
+                <span>Precargados</span> 
             </li>
+            <li>
+                <span>Modelo Guardados</span> 
+            </li>
+            
         </ul>
     </li>
 </ul>
 
 @endsection
+
+@section ('navbar-toggleIzq') 
+ @if (Auth::check()&&Auth::user()->isAdmin())
+     <a href="{{ url('/loadprecargado') }}" class="btn btn-outline-success my-2 my-sm-0">Cargar precargado</a>
+@endif
+@endsection
+
 @section('bodyTitle')
     Personaliza tus anteojos online!
 @endsection
@@ -104,14 +115,14 @@
                 
                     @if (Auth::check())
                         @if (Auth::user()->isAdmin())
-                <div class="row col-md-10">
-                        <div class="col-md-3 center-btn btn btn-primary btn_color4 btn-shortspace">Guardar Como Precargado
-                        </div>
+                <div class="row col-md-10">                        
                         <div class="col-md-2 center-btn btn btn-primary btn_color1">Cargar
                         </div>
                         <div class="col-md-2 center-btn btn btn-primary" id="btn_save">Guardar
                         </div>
                         <div class="col-md-2 center-btn btn btn-primary btn_color3" id="btn_download">Descargar
+                        </div>
+                        <div class="col-md-3 center-btn btn btn-primary btn_color4 btn-shortspace">Guardar Como Precargado
                         </div>
                         @endif
                     @else

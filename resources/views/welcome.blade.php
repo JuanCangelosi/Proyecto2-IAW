@@ -7,15 +7,23 @@
             Opciones <span class="caret"></span>
         </a>
 
-        <ul class="dropdown-menu" role="menu">
+        <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
             <li>
                 <button class="btn btn-outline-success my-2 my-sm-0" id="btnRandom" onclick="mostrarPrecargadoRandom()">Cargar Random </button>
             </li>
-            <li>
-                <span>Precargados</span> 
+            <li class="dropdown-submenu">
+                <a class="test" tabindex="-1" href="#">Precargados<span class="caret"></span></a>
+                <ul class="dropdown-menu" id="submenuPrecargados">
+                  <li><a tabindex="-1" href="#">2nd level dropdown</a></li>
+                  <li><a tabindex="-1" href="#">2nd level dropdown</a></li>
+                </ul>
             </li>
-            <li>
-                <span>Modelo Guardados</span> 
+            <li class="dropdown-submenu">
+                <a class="test" tabindex="-1" href="#">Guardados<span class="caret"></span></a>
+                <ul class="dropdown-menu" id="submenuGuardados">
+                  <li><a tabindex="-1" href="#">2nd level dropdown</a></li>
+                  <li><a tabindex="-1" href="#">2nd level dropdown</a></li>
+                </ul>
             </li>
             
         </ul>

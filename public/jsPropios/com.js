@@ -11,3 +11,16 @@ $(function() {
         }
     });
 });
+
+$(function() {
+   /* $.ajax({
+        url: "/precargados",
+        context: document.body,
+        success: function (data) {
+           cargarPrecargados(data);
+        }
+    });
+    */
+    cargarPrecargados([1,2,3]);
+});
+

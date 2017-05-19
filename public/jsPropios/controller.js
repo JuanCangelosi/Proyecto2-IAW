@@ -446,3 +446,35 @@ function chngPatillas(color){
 function getShtEstilo(){
 	return document.getElementById("cssEstilo").sheet;
 }
+
+function cargarPrecargados(precargados){
+    var i=0,
+        max;
+    for(i=0, max=precargados.length; i<max; i++ ){
+        $("#submenuPrecargados").append('<li><a tabindex="-1" href="#" onclick="obtenerPrecargado('+i+')" >Precargado'+i+'</a></li>')
+    }
+}
+
+function obtenerPrecargado(id){
+    $.ajax({
+        url: "/obtenerprecargados",
+        data: {id:1},
+        context: document.body,
+        success: function (data) {
+           cargarPrecargados(data);
+        }
+    });
+}
+
+function guardarPrecargado(){
+    $.ajax({
+        url: "/guardarprecargado",
+        data: seleccion,
+        context: document.body,
+        success: function (data) {
+           cargarPrecargados(data);
+        }
+    });
+}
+
+

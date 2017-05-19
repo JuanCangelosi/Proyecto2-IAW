@@ -4,8 +4,7 @@
                      <h3 data-toggle="collapse" href="#collapseModelo" aria-expanded="false" aria-controls="collapseModelo"><span class="caret-right" id="tab"></span>Agregar Modelo</h3>
 
                       <div class="collapse container-fluid" id="collapseModelo">
-                        <form action="/addmodelo" method="post" id="form-addModelo">
-                            <meta name="_token" content="{{ csrf_token() }}">
+                        <form action="adminpanel/addmodelo" method="post" id="form-addModelo">
                             <div class="form-group">
                                 <label for="example-text-input" class="col-2 col-form-label form-texto-2">Nombre del Modelo</label>
                                 <div class="col-10">

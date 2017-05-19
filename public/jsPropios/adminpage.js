@@ -5,7 +5,7 @@ $("#btnModificarCar").click(mostrarModificarCaracteristicas);
 $("#btnModificarPrecarg").click(mostrarModificarPrecargados);
 
 function mostrarAgregarCaracteristicas(){
-    $("#panelmostraropciones").load("htmlDinamicos/agregarCaracteristicas.blade.php");
+    $("#panelmostraropciones").load("htmlDinamicos/agregarCaracteristicas.blade.php");    
 }
 
 function mostrarModificarCaracteristicas(){
@@ -59,6 +59,7 @@ function agregarTamano(){
     console.log(anchopuente);
     console.log(ancholente);
 }
+
 
 function getModelos(){
     

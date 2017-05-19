@@ -10,5 +10,5 @@
 
     <!-- Estilos Propios -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link id="cssPropio" href="csspropios/bootstrap1.css" rel="stylesheet">
-    <link id="cssEstilo" href="csspropios/estilo.css" rel="stylesheet">
+    <link id="cssPropio" href="cssPropios/bootstrap1.css" rel="stylesheet">
+    <link id="cssEstilo" href="cssPropios/estilo.css" rel="stylesheet">

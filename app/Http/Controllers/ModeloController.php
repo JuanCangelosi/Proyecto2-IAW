@@ -8,14 +8,20 @@ use App\Modelo;
 class ModeloController extends Controller
 {
        
-    public function cargarModelo(){
-        return view('home');
-       /* $modelo = new Modelo;
-        $modelo->modelo = $request->modelo;
-        $modelo->detalle = $request->detalle;
-        $modelo->precio_base = $request->precio_base;
-        $modelo->save();*/
-        
+    public function cargarModelo(Request $request){
+      //  dd($request->all());
+      /*  $modelo = Modelo::save([
+            'modelo' => $request->get('modelo'),
+            'precio_base' => $request->get('precio_base'),
+            'detalle' => $request->get('detalle'),
+        ]);*/
+        $modelo = new Modelo;
+        $modelo->modelo = $request->get('modelo');
+        $modelo->precio_base = $request->get('precio_base');
+        $modelo->detalle = $request->get('detalle');
+
+        $modelo->save();
+        return redirect('home');
     }
     /*
     public function modificarModelo(Request $request){

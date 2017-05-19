@@ -5,15 +5,15 @@ $("#btnModificarCar").click(mostrarModificarCaracteristicas);
 $("#btnModificarPrecarg").click(mostrarModificarPrecargados);
 
 function mostrarAgregarCaracteristicas(){
-    
+    $("#panelmostraropciones").load("htmlDinamicos/agregarCaracteristicas.html");
 }
 
 function mostrarModificarCaracteristicas(){
-    
+    $("#panelmostraropciones").load("htmlDinamicos/modificarCaracteristicas.html");
 }
 
 function mostrarModificarPrecargados(){
-    
+    $("#panelmostraropciones").load("htmlDinamicos/modificarPrecargados.html");
 }
 
 function agregarModelo(){
@@ -58,4 +58,28 @@ function agregarTamano(){
     console.log(tamano);
     console.log(anchopuente);
     console.log(ancholente);
+}
+
+function getModelos(){
+    
+}
+
+function getVidrios(){
+    
+}
+
+function getMarcos(){
+    
+}
+
+function getPatillas(){
+    
+}
+
+function getTamanos(){
+    
+}
+
+function getPrecargados(){
+    
 }

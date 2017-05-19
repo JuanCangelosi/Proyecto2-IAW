@@ -8,7 +8,7 @@
                             <div class="form-group">
                                 <label for="example-text-input" class="col-2 col-form-label form-texto-2">Nombre del Modelo</label>
                                 <div class="col-10">
-                                    <input class="form-control" type="text" value="Original_Wayfarer" name="precio_modelo" id="nombre_modelo">
+                                    <input class="form-control" type="text" value="Original_Wayfarer" name="nombre_modelo" id="nombre_modelo">
                                 </div>
 
                                 <label for="precio_modelo" class="col-2 col-form-label form-texto-2">Precio</label>
@@ -19,7 +19,7 @@
                                 <label class="form-texto-2" for="descripcionModelo">Descripcion del modelo</label>
                                 <textarea class="form-control" id="descripcionModelo" name="descripcionModelo" rows="3"></textarea>
                             </div>
-                        <button type="submit" class="btn btn-primary btn_color1" onclick="agregarModelo();">Cargar</button>
+                        <button type="submit" class="btn btn-primary btn_color1">Cargar</button>
                           </form>
                   </div>
 

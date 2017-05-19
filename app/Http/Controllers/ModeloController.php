@@ -9,17 +9,13 @@ class ModeloController extends Controller
 {
        
     public function cargarModelo(Request $request){
-      //  dd($request->all());
-      /*  $modelo = Modelo::save([
-            'modelo' => $request->get('modelo'),
-            'precio_base' => $request->get('precio_base'),
-            'detalle' => $request->get('detalle'),
-        ]);*/
+        $request=$request->all();
+        // lo tratamos como arreglo, se maneja con los nombres definidos en los formularios. Te podes fijar haciendo return $request->all();, que nombre de clavele pone el arreglo.
         $modelo = new Modelo;
-        $modelo->modelo = $request->get('modelo');
-        $modelo->precio_base = $request->get('precio_base');
-        $modelo->detalle = $request->get('detalle');
-
+        $modelo->modelo = $request['nombre_modelo'];
+        $modelo->detalle = $request['descripcionModelo'];
+        $modelo->precio_base = $request['precio_modelo'];
+        
         $modelo->save();
         return redirect('home');
     }

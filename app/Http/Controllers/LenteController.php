@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
+use App\LenteUsuario;
 use App\Lente;
 use App\Vidrio;
 use App\Patilla;
@@ -75,4 +76,31 @@ class LenteController extends Controller
     public function obtenerIDPrecargados(){
 
     }
+    
+    public function guardarLente(Request $request){
+        $lente = new LenteUsuario;
+        $lente->id_usuario = Auth::user()->id;
+        $lente->modelo = $request->modelo;
+        $lente->detalle = $request->detalle;
+        $lente->precio_base = $request->precio_base;
+        $lente->vidrio = serialize($request->vidrio);
+        $lente->marco = serialize($request->marco);
+        $lente->patilla = serialize($request->patillas);
+        $lente->tamano = serialize($request->tamano);
+        $lente->save();
+    }
+    
+    public function getLentesGuardados(){
+        $id_usuario = Auth::user()->id;
+        if(request()->ajax())
+            $retorno= LenteUsuario::where('id_usuario',$id_usuario)->get();
+            return $retorno;
+    }
+    /*
+    public function eliminarLenteGuardado(Request $request){
+            $request=$request->all();        
+            $lente=LenteUsuario::find($request['id_lenteGuardar']);
+            $lente->delete();
+    }
+    */
 }

@@ -20,7 +20,7 @@
                 </ul>
             </li>
             <li class="dropdown-submenu">
-                <a class="test" tabindex="-1" href="#">Guardados<span class="caret"></span></a>
+                <a class="test" tabindex="-1" href="#" onclick="getGuardados()">Guardados<span class="caret"></span></a>
                 <ul class="dropdown-menu" id="submenuGuardados">
                   <li><a tabindex="-1" href="#">Modelos guardados</a></li>
                   <li><a tabindex="-1" href="#">2nd level dropdown</a></li>
@@ -127,7 +127,7 @@
                     @if (Auth::check())
                         @if (Auth::user()->isAdmin())
                 <div class="row col-md-10">                        
-                        <div class="col-md-2 center-btn btn btn-primary btn_color1">Cargar
+                        <div class="col-md-2 center-btn btn btn-primary btn_color1" id="btn_load">Cargar
                         </div>
                         <div class="col-md-2 center-btn btn btn-primary" id="btn_save">Guardar
                         </div>
@@ -135,10 +135,14 @@
                         </div>
                         <div class="col-md-3 center-btn btn btn-primary btn_color4 btn-shortspace" id="btn_precargado">Guardar Como Precargado
                         </div>
+                        @else
+                        <div class="col-md-2 center-btn btn btn-primary" id="btn_saveReg">Guardar
+                        </div>
+                        <div class="col-md-2 center-btn btn btn-primary btn_color3" id="btn_download">Descargar
                         @endif
                     @else
                 <div class="row col-md-9">
-                        <div class="col-md-3 center-btn btn btn-primary btn_color1">Cargar
+                        <div class="col-md-3 center-btn btn btn-primary btn_color1" id="btn_load">Cargar
                         </div>
                         <div class="col-md-3 center-btn btn btn-primary" id="btn_save">Guardar
                         </div>

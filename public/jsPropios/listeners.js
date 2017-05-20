@@ -8,9 +8,11 @@ $('#mostrarModelo').on('click', '.btnmodelo', function(e){
 
 $("#btnRandom").click(mostrarPrecargadoRandom);
 
-//$("#btn_load").click(cargar);
+$("#btn_load").click(cargarDatos);
 
 $("#btn_save").click(guardarDatos);
+
+$("#btn_saveReg").click(guardarDatosReg);
 
 $("#btn_precargado").click(guardarPrecargado);
 

@@ -35,6 +35,7 @@ Route::get('/customize', 'LenteController@index');
 Route::get('/obtenerprecargado', 'LenteController@obtenerPrecargado');
 Route::post('/guardarprecargado', 'LenteController@guardarPrecargado');
 Route::get('/obteneridprecargados', 'LenteController@obtenerIDPrecargados');
+Route::post('/guardarLente', 'LenteController@guardarLente');
 
 Route::get('/loadprecargado', 'LoadPrecargadoController@index');
 
@@ -59,6 +60,7 @@ Route::get('/marcos', 'MarcoController@getMarcos');
 Route::get('/patillas', 'PatillaController@getPatillas');
 Route::get('/tamanos', 'TamanoController@getTamanos');
 Route::get('/precargados', 'LenteController@getPrecargados');
+Route::get('/guardados', 'LenteController@getLentesGuardados');
 
 Route::get('/vidrios/colores', 'VidrioController@getColores');
 Route::get('/marcos/colores', 'MarcoController@getColores');

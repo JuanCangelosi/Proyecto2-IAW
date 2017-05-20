@@ -39,7 +39,7 @@
           <div class="collapse collapse-color container-fluid" id="collapseLentes">
             <form action="adminpanel/upvidrio" method="post" id="form-upVidrio">
                 <div class="form-group">
-                    <label for="example-text-input" class="col-2 col-form-label form-texto-2">Tipo de vidrio (solo se cambiaran lo cambios a los campos que rellene)</label>
+                    <label for="example-text-input" class="col-2 col-form-label form-texto-2">Selccionar tipo de vidrio (solo se cambiaran lo cambios a los campos que rellene)</label>
                     <div class="col-10">
                          <select name="nombre_tipo" class="form-control" id="sel_svid" onchange="cambiarColoresVidrios()">
                         </select>
@@ -67,7 +67,7 @@
           <div class="collapse container-fluid" id="collapseMarcos">
                <form action="adminpanel/upmarco" method="post" id="form-upMarco">
                 <div class="form-group">
-                    <label for="example-text-input" class="col-2 col-form-label form-texto-2">Tipo de marco (solo se cambiaran lo cambios a los campos que rellene)</label>
+                    <label for="example-text-input" class="col-2 col-form-label form-texto-2">Seleccionar tipo de marco (solo se cambiaran lo cambios a los campos que rellene)</label>
                     <div class="col-10">
                          <select name="nombre_tipo" class="form-control" id="sel_smar" onchange="cambiarColoresMarcos()">
                         </select>
@@ -95,7 +95,7 @@
           <div class="collapse container-fluid" id="collapsePatillas">
               <form action="adminpanel/uppatilla" method="post" id="form-upPatilla">
                 <div class="form-group">
-                    <label for="example-text-input" class="col-2 col-form-label form-texto-2">Tipo de patilla (solo se cambiaran lo cambios a los campos que rellene)</label>
+                    <label for="example-text-input" class="col-2 col-form-label form-texto-2">Seleccionar tipo de patilla (solo se cambiaran lo cambios a los campos que rellene)</label>
                     <div class="col-10">
                          <select name="nombre_tipo" class="form-control" id="sel_spat" onchange="cambiarColoresPatillas()">
                         </select>

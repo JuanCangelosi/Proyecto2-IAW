@@ -18,7 +18,9 @@ function mostrarModificarCaracteristicas(){
     $("#panelmostraropciones").load("htmlDinamicos/modificarCaracteristicas.blade.php");
     getModelos();
     getVidrios();
+    getMarcos();
     getTamanos();
+    getPatillas();
 }
 
 function mostrarModificarPrecargados(){
@@ -77,7 +79,7 @@ function getModelos(){
         $.each(modelos, function(i, mod) {
         $('#sel_smod').append('<option value="'+mod.modelo+'">'+mod.modelo+'</option>');
         });
-    });
+    });  
 }
 
 function getVidrios(){
@@ -85,7 +87,17 @@ function getVidrios(){
         $.each(vidrios, function(i, vid) {
         $('#sel_svid').append('<option value="'+vid.tipo+'">'+vid.tipo+'</option>');
         });
+        $("#sel_svid").val('0');
     });   
+}
+
+function getMarcos(){
+    $.get('/marcos',function(vidrios){
+        $.each(vidrios, function(i, vid) {
+        $('#sel_smar').append('<option value="'+vid.tipo+'">'+vid.tipo+'</option>');
+        });
+        $("#sel_smar").val('0');
+    });      
 }
 
 
@@ -93,8 +105,10 @@ function getPatillas(){
     $.get('/patillas',function(patillas){
         $.each(patillas, function(i, pat) {
         $('#sel_spat').append('<option value="'+pat.tipo+'">'+pat.tipo+'</option>');
+        $("#sel_spat").val('0');
         });
     });  
+    
 }
 
 function getTamanos(){
@@ -112,3 +126,39 @@ function getPrecargados(){
         });
     });
 }
+
+
+function cambiarColoresVidrios(){
+    var selected= $('#sel_svid').val();
+    console.log(selected);
+    $.get('/vidrios/colores/',{nombre_tipo: selected}, function(colores){ 
+        $('#ColorVidrio').attr('value', armarColoresString(colores));
+    });
+}
+
+function cambiarColoresMarcos(){
+    var selected= $('#sel_smar').val();
+    $.get('/marcos/colores/',{nombre_tipo: selected}, function(colores){
+        $('#ColorMarco').attr('value', armarColoresString(colores));
+    });
+}
+
+function cambiarColoresPatillas(){
+    var selected= $('#sel_spat').val();
+    $.get('/patillas/colores/',{nombre_tipo: selected}, function(colores){
+        console.log(colores);
+        $('#ColorPatilla').attr('value', armarColoresString(colores));
+    });
+}
+
+function armarColoresString(colores){
+    var str="";
+    for (var i=0; i< colores.length; i++) {
+        if(i+1!=colores.length)
+            str+=colores[i]+",";
+        else
+            str+=colores[i];
+    }
+    return str;
+}
+

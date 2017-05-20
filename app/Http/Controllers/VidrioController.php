@@ -20,29 +20,42 @@ class VidrioController extends Controller
 
     
      public function modificarVidrio(Request $request){
-        $request = $request->all();
-       return $vidrio= Vidrio::where('tipo', $request['nombre_tipo'])->get()->first();
-        if($request['button']=='addColor'){          
-            return redirect('/loadprecargado')->with('message', 'Se ha agregado color al lente especificado con exito.');
-        }else{
-            if($request['button']=='addColor'){
-                
-                 return redirect('/loadprecargado')->with('message', 'Se ha eliminado color al lente especificado con exito.');
-            }else{  //==eliminarColor
-                
-                 return redirect('/loadprecargado')->with('message', 'Se ha eliminado el lente especificado con exito.');
-            }
+        if(Auth::check() && Auth::user()->isAdmin()){
+            $request = $request->all();
+            if($request['nombre_modeloModif']!=null){
+                $vidrio= Vidrio::where('tipo', $request['nombre_tipo'])->get()->first();
+                if($request['button']=='update'){  
+                    $this->updateVidrio($vidrio, $request);
+                    return redirect('/loadprecargado')->with('message', 'Se ha editado lente especificado con exito.');
+                }else{//el boton fueelminar     
+                    $this->eliminarVidrio($vidrio);
+                    return redirect('/loadprecargado')->with('message', 'Se ha eliminado el tipo de lente especificado con exito.');
+                }
+            }else
+                return redirect('/loadprecargado')->with('message', 'Tiene que especificar tipo para realizar operacion sobre vidrios.');
         }
-  /*      $vidrio = Vidrio::find(request->id);
-        $vidrio->tipo = $request->tipo;
-        $vidrio->color = serialize($request->color);
-        $vidrio->save();*/
     }
     
-     public function eliminarVidrio(Request $request){
-        //$vidrio->delete();
+    private function eliminarVidrio($vidrio){
+        $vidrio->delete();
+    }
+        
+    private function updateVidrio($vidrio, $request){
+        if($request['nombre_modeloModif']!=null)
+            $vidrio->tipo=$request['nombre_modeloModif'];
+        if($request['ColorVidrio']!='Nada seleccionado' || $request['ColorVidrio']!=null){
+            $colores= explode(",",$request['ColorVidrio']);
+            $vidrio->colores =serialize($colores);
+        }
+        $vidrio->save();
     }
     
+    
+    public function getColores(Request $request){
+        $request = $request->all();
+        $vidrio=Vidrio::where('tipo', $request['nombre_tipo'])->get()->first();           
+        return unserialize($vidrio->colores);
+    }
     
     public function getVidrios(){
         if(request()->ajax())

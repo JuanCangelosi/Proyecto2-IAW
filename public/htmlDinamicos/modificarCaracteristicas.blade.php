@@ -41,7 +41,7 @@
                 <div class="form-group">
                     <label for="example-text-input" class="col-2 col-form-label form-texto-2">Tipo de vidrio (solo se cambiaran lo cambios a los campos que rellene)</label>
                     <div class="col-10">
-                         <select name="nombre_tipo" class="form-control" id="sel_svid">
+                         <select name="nombre_tipo" class="form-control" id="sel_svid" onchange="cambiarColoresVidrios()">
                         </select>
                     </div>
                     <label for="nombre_modeloModif" class="col-2 col-form-label form-texto-2">Nombre nuevo</label>
@@ -49,20 +49,15 @@
                         <input class="form-control" type="text" name="nombre_modeloModif" id="nombre_modeloModif">
                     </div>
                     
-                    <label for="example-text-input" class="col-2 col-form-label form-texto-2">Agregar color HEXA</label>
+                    <label for="example-text-input" class="col-2 col-form-label form-texto-2">Agregar quitar color HEXA: completar o eliminar texto de lo que se quiere respetando formato 'color1,color2,'</label>
                     <div class="col-10">
-                            <input class="form-control" type="text" id="ColorVidrio" value="FFFFFF" name="ColorVidrio">
-                    </div>
-                    <label for="example-text-input" class="col-2 col-form-label form-texto-2">Eliminar color Hexa</label>
-                    <div class="col-10">
-                            <input class="form-control" type="text" id="ColorVidrio" value="tendria que haber una lista de los colores que se tienen :(" name="ColorVidrio">
+                            <input class="form-control" type="text" id="ColorVidrio" name="ColorVidrio" value="Nada seleccionado">
                     </div>
                     
                 </div>
                 <div>
-                    <button type="submit" name="button" value="addColor" class="btn btn-primary">Agregar Color</button>  
-                    <button type="submit" name="button" value="eliminarColor" class="btn btn-primary btn_color3">Eliminar Color</button>
-                    <button type="submit" name="button" value="eliminarTipo" class="btn btn-primary btn_color3">Eliminar Tipo</button>
+                    <button type="submit" name="button" value="update" class="btn btn-primary">Modificar</button>  
+                    <button type="submit" name="button" value="eliminar" class="btn btn-primary btn_color3">Eliminar Tipo</button>
                 </div>
               </form>
           </div>
@@ -70,17 +65,57 @@
             <!-- Menu de seleccion de marcos -->
           <h3 data-toggle="collapse" href="#collapseMarcos" aria-expanded="false" aria-controls="collapseMarcos"><span class="caret-right" id="tab"></span>Modificar Marcos</h3>
           <div class="collapse container-fluid" id="collapseMarcos">
-            <p id="mostrarMarcos">
-
-            </p>
+               <form action="adminpanel/upmarco" method="post" id="form-upMarco">
+                <div class="form-group">
+                    <label for="example-text-input" class="col-2 col-form-label form-texto-2">Tipo de marco (solo se cambiaran lo cambios a los campos que rellene)</label>
+                    <div class="col-10">
+                         <select name="nombre_tipo" class="form-control" id="sel_smar" onchange="cambiarColoresMarcos()">
+                        </select>
+                    </div>
+                    <label for="nombre_modeloModif" class="col-2 col-form-label form-texto-2">Nombre nuevo</label>
+                    <div class="col-10">
+                        <input class="form-control" type="text" name="nombre_modeloModif" id="nombre_modeloModif">
+                    </div>
+                    
+                    <label for="example-text-input" class="col-2 col-form-label form-texto-2">Agregar quitar color HEXA: completar o eliminar texto de lo que se quiere respetando formato 'color1,color2,'</label>
+                    <div class="col-10">
+                            <input class="form-control" type="text" id="ColorMarco" name="ColorMarco" value="Nada seleccionado">
+                    </div>
+                    
+                </div>
+                <div>
+                    <button type="submit" name="button" value="update" class="btn btn-primary">Modificar</button>  
+                    <button type="submit" name="button" value="eliminar" class="btn btn-primary btn_color3">Eliminar Tipo</button>
+                </div>
+              </form>
           </div>
 
             <!-- Menu de seleccion de patillas-->
           <h3 data-toggle="collapse" href="#collapsePatillas" aria-expanded="false" aria-controls="collapsePatillas"><span class="caret-right" id="tab"></span>Modificar Patillas</h3>
           <div class="collapse container-fluid" id="collapsePatillas">
-             <p id="mostrarPatillas">
-
-            </p>
+              <form action="adminpanel/uppatilla" method="post" id="form-upPatilla">
+                <div class="form-group">
+                    <label for="example-text-input" class="col-2 col-form-label form-texto-2">Tipo de patilla (solo se cambiaran lo cambios a los campos que rellene)</label>
+                    <div class="col-10">
+                         <select name="nombre_tipo" class="form-control" id="sel_spat" onchange="cambiarColoresPatillas()">
+                        </select>
+                    </div>
+                    <label for="nombre_modeloModif" class="col-2 col-form-label form-texto-2">Nombre nuevo</label>
+                    <div class="col-10">
+                        <input class="form-control" type="text" name="nombre_modeloModif" id="nombre_modeloModif">
+                    </div>
+                    
+                    <label for="example-text-input" class="col-2 col-form-label form-texto-2">Agregar quitar color HEXA: completar o eliminar texto de lo que se quiere respetando formato 'color1,color2,'</label>
+                    <div class="col-10">
+                            <input class="form-control" type="text" id="ColorPatilla" name="ColorPatilla" value="Nada seleccionado">
+                    </div>
+                    
+                </div>
+                <div>
+                    <button type="submit" name="button" value="update" class="btn btn-primary">Modificar</button>  
+                    <button type="submit" name="button" value="eliminar" class="btn btn-primary btn_color3">Eliminar Tipo</button>
+                </div>
+              </form>
           </div>
 
             <!-- Menu de seleccion de tamaños-->

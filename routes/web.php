@@ -48,13 +48,20 @@ Route::post('adminpanel/addtamanos', 'TamanoController@cargarTamano');
 Route::post('adminpanel/upmodelo', 'ModeloController@modificarModelo');
 Route::post('adminpanel/upvidrio', 'VidrioController@modificarVidrio');
 Route::post('adminpanel/uptamano', 'TamanoController@modificarTamano');
+Route::post('adminpanel/upmarco', 'MarcoController@modificarMarco');
+Route::post('adminpanel/uppatilla', 'PatillaController@modificarPatilla');
+
 Route::post('adminpanel/delprecargado', 'LenteController@eliminarPrecargado');
 
 Route::get('/modelos', 'ModeloController@getModelos');
 Route::get('/vidrios', 'VidrioController@getVidrios');
 Route::get('/marcos', 'MarcoController@getMarcos');
-Route::get('/patilla', 'PatillaController@getPatillas');
+Route::get('/patillas', 'PatillaController@getPatillas');
 Route::get('/tamanos', 'TamanoController@getTamanos');
 Route::get('/precargados', 'LenteController@getPrecargados');
+
+Route::get('/vidrios/colores', 'VidrioController@getColores');
+Route::get('/marcos/colores', 'MarcoController@getColores');
+Route::get('/patillas/colores', 'PatillaController@getColores');
 
 

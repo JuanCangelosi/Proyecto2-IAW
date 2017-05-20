@@ -17,22 +17,35 @@ class VidrioController extends Controller
         return redirect('/loadprecargado')->with('message', 'Se ha cargado Vidrio con exito.');
     }
 
-    /*
+    
      public function modificarVidrio(Request $request){
-        $vidrio = Vidrio::find(request->id);
+        $request = $request->all();
+        $vidrio= Vidrio::where('tipo', $request['nombre_modelo'])->get()->first();
+        if($request['button']=='addColor'){
+            
+            return redirect('/loadprecargado')->with('message', 'Se ha agregado color al lente especificado con exito.');
+        }else{
+            if($request['button']=='addColor'){
+                
+                 return redirect('/loadprecargado')->with('message', 'Se ha eliminado color al lente especificado con exito.');
+            }else{  //==eliminarColor
+                
+                 return redirect('/loadprecargado')->with('message', 'Se ha eliminado el lente especificado con exito.');
+            }
+        }
+  /*      $vidrio = Vidrio::find(request->id);
         $vidrio->tipo = $request->tipo;
         $vidrio->color = serialize($request->color);
-        $vidrio->save();
+        $vidrio->save();*/
     }
     
      public function eliminarVidrio(Request $request){
-        $vidrio = Vidrio::find(request->id);
-        $vidrio->delete();
+        //$vidrio->delete();
     }
     
     
     
-    public function getVidrio(){
+   /* public function getVidrio(){
         
     }*/
 }

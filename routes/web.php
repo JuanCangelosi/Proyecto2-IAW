@@ -40,3 +40,41 @@ Route::post('adminpanel/addvidrio', 'VidrioController@cargarVidrio');
 Route::post('adminpanel/addmarco', 'MarcoController@cargarMarco');
 Route::post('adminpanel/addpatilla', 'PatillaController@cargarPatilla');
 Route::post('adminpanel/addtamanos', 'TamanoController@cargarTamano');
+
+
+
+Route::post('adminpanel/upmodelo', 'ModeloController@modificarModelo');
+Route::post('adminpanel/upvidrio', 'VidrioController@modificarVidrio');
+
+
+// Para ajax
+Route::get('/modelos',function(){
+    if(Request::ajax()){
+        if(Auth::check() && Auth::user()->isAdmin())
+            return App\Modelo::all();
+    } 
+});
+Route::get('/vidrios',function(){
+    if(Request::ajax()){
+        if(Auth::check() && Auth::user()->isAdmin())
+            return App\Vidrio::all();
+    } 
+});
+Route::get('/marcos',function(){
+    if(Request::ajax()){
+        if(Auth::check() && Auth::user()->isAdmin())
+            return App\Marco::all();
+    } 
+});
+Route::get('/patilla',function(){
+    if(Request::ajax()){
+        if(Auth::check() && Auth::user()->isAdmin())
+            return App\Patilla::all();
+    } 
+});
+Route::get('/tamanos',function(){
+    if(Request::ajax()){
+        if(Auth::check() && Auth::user()->isAdmin())
+            return App\Tamano::all();
+    } 
+});

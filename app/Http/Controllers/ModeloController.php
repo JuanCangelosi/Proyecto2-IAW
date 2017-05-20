@@ -17,24 +17,33 @@ class ModeloController extends Controller
         $modelo->precio_base = $request['precio_modelo'];
         
         $modelo->save();
-        return redirect('home');
+        return redirect('/loadprecargado')->with('message', 'Se ha cargado Modelo con exito.');
     }
-    /*
+  
     public function modificarModelo(Request $request){
-        $modelo = Modelo::find(request->id);
-        $modelo->modelo = $request->modelo;
-        $modelo->detalle = $request->detalle;
-        $modelo->precio_base = $request->precio_base;
+        $request=$request->all();
+        $modelo= Modelo::where('modelo', $request['nombre_modelo'])->get()->first();
+        if($request['button']=='update'){
+          $this->updateModelo($modelo, $request);
+          return redirect('/loadprecargado')->with('message', 'Se ha modificado modelo con exito.');
+        }
+        else {
+          $this->eliminarModelo($modelo, $request);
+          return redirect('/loadprecargado')->with('message', 'Se ha eliminado modelo con exito.');  
+        }
+    }
+    
+    private function updateModelo($modelo, $request){
+        if($request['descripcionModelo']!=null)
+            $modelo->detalle = $request['descripcionModelo'];
+        if($request['precio_modelo']!=null)
+            $modelo->precio_base = $request['precio_modelo'];  
         $modelo->save();
-    }
-    
-    
-    public function eliminarModelo(Request $request){
-        $modelo = Modelo::find(request->id);
-        $modelo->delete();
-    }
-    
-      public function getModelo(){
         
-    }*/
+    }
+      
+    private function eliminarModelo($modelo, $request){
+        $modelo->delete();
+  
+    }
 }

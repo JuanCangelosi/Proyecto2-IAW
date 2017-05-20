@@ -1,7 +1,7 @@
  <div class="col-3 col-md-12 accordion-panelEditor"><div class="col-md-12" id="accordion" >
 
                     <!-- Menu de seleccion de modelos-->
-                     <h3 data-toggle="collapse" href="#collapseModelo" aria-expanded="false" aria-controls="collapseModelo"><span class="caret-right" id="tab"></span>Agregar Modelo</h3>
+                     <h3 data-toggle="collapse" href="#collapseModelo" aria-expanded="false" aria-controls="collapseModelo" onclick="getModelos()"><span class="caret-right" id="tab"></span>Agregar Modelo</h3>
 
                       <div class="collapse container-fluid" id="collapseModelo">
                         <form action="adminpanel/addmodelo" method="post" id="form-addModelo">

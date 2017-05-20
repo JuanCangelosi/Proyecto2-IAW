@@ -17,15 +17,15 @@
                     <ul class="nav navbar-nav navbar-right">
                         @if (Auth::check())
                           <li class="dropdown">
+                           <li class="dropdown">
                               <a href="#" class="dropdown-toggle adminName" data-toggle="dropdown" role="button" aria-expanded="false">
-                                  
                                @if(Auth::user()->isAdmin())
-                                  <span class="adminName">                                         
+                                   <span class="adminName">{{ Auth::user()->name }} </span><span class="caret"></span>                                     
                                @else
-                                  <span class="userName">      
+                                  <span class="userName">{{ Auth::user()->name }}   </span><span class="caret"></span>
                               @endif
-                                      {{ Auth::user()->name }}</span></span><span class="caret"></span>
                              </a>
+
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
                                         <a href="{{ route('logout') }}"

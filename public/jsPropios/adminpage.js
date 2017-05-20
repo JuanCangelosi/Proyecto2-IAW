@@ -4,38 +4,48 @@ $("#btnModificarCar").click(mostrarModificarCaracteristicas);
 
 $("#btnModificarPrecarg").click(mostrarModificarPrecargados);
 
+$("#togleModelo").click(getModelos);
+
 function mostrarAgregarCaracteristicas(){
+    $("#opcion_panel_admin").remove();
+    $("#h_pAdmin").append('<span id="opcion_panel_admin">agregar característica</span>');
     $("#panelmostraropciones").load("htmlDinamicos/agregarCaracteristicas.blade.php");    
 }
 
 function mostrarModificarCaracteristicas(){
-    $("#panelmostraropciones").load("htmlDinamicos/modificarCaracteristicas.html");
+    $("#opcion_panel_admin").remove();
+    $("#h_pAdmin").append('<span id="opcion_panel_admin">modificar característica</span>');
+    $("#panelmostraropciones").load("htmlDinamicos/modificarCaracteristicas.blade.php");
+    getModelos();
+    getVidrios();
 }
 
 function mostrarModificarPrecargados(){
+    $("#opcion_panel_admin").remove();
+    $("#h_pAdmin").append('<span id="opcion_panel_admin">modificar precargados</span>');
     $("#panelmostraropciones").load("htmlDinamicos/modificarPrecargados.html");
 }
 
 function agregarModelo(){
-    var nombreModelo = $("#nombre_modelo").val();
+ /*   var nombreModelo = $("#nombre_modelo").val();
     var precioModelo = $("#precio_modelo").val();
     var descripcionModelo = $("#descripcionModelo").val();
     
     console.log(nombreModelo);
     console.log(precioModelo);
-    console.log(descripcionModelo);
+    console.log(descripcionModelo);*/
 }
 
 function agregarVidrio(){
-    var nombreVidrio = $("#TipoVidrio").val();
+  /*  var nombreVidrio = $("#TipoVidrio").val();
     var colorVidrio = $("#ColorVidrio").val();
     
     console.log(nombreVidrio);
-    console.log(colorVidrio);
+    console.log(colorVidrio);*/
 }
 
 function agregarMarco(){
-     var nombreMarco = $("#TipoMarco").val();
+  /*   var nombreMarco = $("#TipoMarco").val();
     var colorMarco = $("#ColorMarco").val();
     
     console.log(nombreMarco);
@@ -47,38 +57,51 @@ function agregarPatilla(){
     var colorPatilla = $("#ColorPatilla").val();
     
     console.log(nombrePatilla);
-    console.log(colorPatilla);
+    console.log(colorPatilla);*/
 }
 
 function agregarTamano(){
-    var tamano = $("#nombre_tamano").val();
+  /*  var tamano = $("#nombre_tamano").val();
     var anchopuente = $("#AnchoPuente").val();
     var ancholente = $("#AnchoLente").val();
     
     console.log(tamano);
     console.log(anchopuente);
-    console.log(ancholente);
+    console.log(ancholente);*/
 }
 
-
 function getModelos(){
-    
+    $.get('/modelos',function(modelos){
+        $.each(modelos, function(i, mod) {
+        $('#sel_smod').append('<option value="'+mod.modelo+'">'+mod.modelo+'</option>');
+        });
+    });
 }
 
 function getVidrios(){
-    
+    $.get('/vidrios',function(vidrios){
+        $.each(vidrios, function(i, vid) {
+        console.log(vid);
+        $('#sel_svid').append('<option value="'+vid.tipo+'">'+vid.tipo+'</option>');
+        });
+    });   
 }
 
-function getMarcos(){
-    
-}
 
 function getPatillas(){
-    
+    $.get('/patillas',function(patillas){
+        $.each(patillas, function(i, pat) {
+        $('#sel_spat').append('<option value="'+pat.tipo+'">'+pat.tipo+'</option>');
+        });
+    });  
 }
 
 function getTamanos(){
-    
+    $.get('/tamanos',function(tamanos){
+        $.each(tamanos, function(i, tam) {
+        $('#sel_stam').append('<option value="'+tam.medida+'">'+tam.medida+'</option>');
+        });
+    });
 }
 
 function getPrecargados(){

@@ -22,7 +22,7 @@
         </div>
     @endif
         <div class="panel panel-default">
-            <div class="panel-heading headTextForm">Administrador</div>
+            <div class="panel-heading headTextForm" id="h_pAdmin">Administrador:<span id="tab"/><span id="tab"/><span id="opcion_panel_admin"></span></div>
             <div id="panelmostraropciones">
                    
             </div>

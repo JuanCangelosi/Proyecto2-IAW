@@ -20,7 +20,7 @@ class VidrioController extends Controller
     
      public function modificarVidrio(Request $request){
         $request = $request->all();
-        $vidrio= Vidrio::where('tipo', $request['nombre_modelo'])->get()->first();
+       return $vidrio= Vidrio::where('tipo', $request['nombre_tipo'])->get()->first();
         if($request['button']=='addColor'){
             
             return redirect('/loadprecargado')->with('message', 'Se ha agregado color al lente especificado con exito.');

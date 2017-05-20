@@ -21,8 +21,10 @@
                     <label class="form-texto-2" for="descripcionModelo">Descripcion del modelo</label>
                     <textarea class="form-control" id="descripcionModelo" name="descripcionModelo" rows="3"></textarea>
                 </div>
-            <button type="submit" name="button" value="update" class="btn btn-primary">Modificar</button>  <button type="submit" name="button" value="eliminar" class="btn btn-primary btn_color3">Eliminar</button>
-              </form>
+                <div>  
+                    <button type="submit" name="button" value="update" class="btn btn-primary">Modificar</button>  <button type="submit" name="button" value="eliminar" class="btn btn-primary btn_color3">Eliminar</button>
+                </div>  
+            </form>
               
           </div>
 
@@ -34,7 +36,7 @@
                 <div class="form-group">
                     <label for="example-text-input" class="col-2 col-form-label form-texto-2">Tipo de vidrio (solo se cambiaran lo cambios a los campos que rellene)</label>
                     <div class="col-10">
-                         <select name="nombre_modelo" class="form-control" id="sel_svid">
+                         <select name="nombre_tipo" class="form-control" id="sel_svid">
                         </select>
                     </div>
 
@@ -48,9 +50,11 @@
                     </div>
                     
                 </div>
-             <button type="submit" name="button" value="addColor" class="btn btn-primary">Agregar Color</button>  
-            <button type="submit" name="button" value="eliminarColor" class="btn btn-primary btn_color3">Eliminar Color</button>
-            <button type="submit" name="button" value="eliminarTipo" class="btn btn-primary btn_color3">Eliminar Tipo</button>
+                <div>
+                    <button type="submit" name="button" value="addColor" class="btn btn-primary">Agregar Color</button>  
+                    <button type="submit" name="button" value="eliminarColor" class="btn btn-primary btn_color3">Eliminar Color</button>
+                    <button type="submit" name="button" value="eliminarTipo" class="btn btn-primary btn_color3">Eliminar Tipo</button>
+                </div>
               </form>
           </div>
 
@@ -73,10 +77,28 @@
             <!-- Menu de seleccion de tamaños-->
           <h3 data-toggle="collapse" href="#collapseTamanos" aria-expanded="false" aria-controls="collapseTamanos"><span class="caret-right" id="tab"></span>Modificar Tamaño</h3>
           <div class="collapse" id="collapseTamanos">
-             <p id="mostrarTamano">
+            <form action="adminpanel/uptamano" method="post" id="form-upMedida">
+                <div class="form-group">
+                    <label for="example-text-input" class="col-2 col-form-label form-texto-2">Nombre de Medida (solo se cambiaran lo cambios a los campos que rellene)</label>
+                    <div class="col-10">
+                         <select name="nombre_medida" class="form-control" id="sel_stam">
+                        </select>
+                    </div>
 
-            </p>
-
-          </div>
+                        <label for="example-text-input" class="col-2 col-form-label form-texto-2">Ancho Puente</label>
+                        <div class="col-10">
+                                <input class="form-control" type="number" id="AnchoPuente" name="AnchoPuente">
+                        </div>
+                        <label for="example-text-input" class="col-2 col-form-label form-texto-2">Ancho Lente</label>
+                        <div class="col-10">
+                                <input class="form-control" type="number" id="AnchoLente" name="AnchoLente">
+                        </div>
+                </div>
+                <div>
+                    <button type="submit" name="button" value="update" class="btn btn-primary">Modificar</button>  <button type="submit" name="button" value="eliminar" class="btn btn-primary btn_color3">Eliminar</button>
+                </div>
+            </form>
+        </div>
+         
     </div>
 </div>

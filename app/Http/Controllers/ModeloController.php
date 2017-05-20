@@ -26,9 +26,8 @@ class ModeloController extends Controller
         if($request['button']=='update'){
           $this->updateModelo($modelo, $request);
           return redirect('/loadprecargado')->with('message', 'Se ha modificado modelo con exito.');
-        }
-        else {
-          $this->eliminarModelo($modelo, $request);
+        }else {
+          $this->eliminarModelo($modelo);
           return redirect('/loadprecargado')->with('message', 'Se ha eliminado modelo con exito.');  
         }
     }
@@ -42,7 +41,7 @@ class ModeloController extends Controller
         
     }
       
-    private function eliminarModelo($modelo, $request){
+    private function eliminarModelo($modelo){
         $modelo->delete();
   
     }

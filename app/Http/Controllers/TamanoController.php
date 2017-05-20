@@ -16,22 +16,33 @@ class TamanoController extends Controller
         $tamano->save();
         return redirect('/loadprecargado')->with('message', 'Se ha cargado Tamaño con exito.');
     }
- /*   
+    
 
     public function modificarTamano(Request $request){
-        $tamano = Tamano::find(request->id);
-        $tamano->medida = $request->medida;
-        $tamano->ancho_lente = $request->ancho_lente;
-        $tamano->ancho_puente = $request->ancho_puente;
+        $request = $request->all();
+        $tamano= Tamano::where('medida', $request['nombre_medida'])->get()->first();
+        if($request['button']=='update'){
+            $this->updateTamano($tamano, $request);
+            return redirect('/loadprecargado')->with('message', 'Se ha modificado tamaño con exito.');
+        }else{
+            $this->eliminarTamano($tamano, $request);
+            return redirect('/loadprecargado')->with('message', 'Se ha eliminado tamaño con exito.');  
+        }
+    }
+    
+    
+    private function updateTamano($tamano, $request){
+        if($request['AnchoPuente']!=null)
+            $tamano->ancho_puente = $request['AnchoPuente'];
+        if($request['AnchoLente']!=null)
+            $tamano->ancho_lente = $request['AnchoLente'];  
         $tamano->save();
     }
-    
-    
-    public function eliminarTamano(Request $request){
-        $tamano = Tamano::find(request->id);
+
+    public function eliminarTamano($tamano){
         $tamano->delete();
     }
-    
+     /*
     public function getTamano(){
         
     }*/

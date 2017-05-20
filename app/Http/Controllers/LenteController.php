@@ -37,5 +37,23 @@ class LenteController extends Controller
         return compact('modelo','vidrio','patillas','marco','tamano');
     }
     
-   
+    public function guardarPrecargado(Request $request){
+        $lente = new Lente;
+        //$lente->detalle = serialize($request);
+        //$lente->save();
+    }
+    
+    public function obtenerPrecargado(Request $request){
+        $lente = Lente::find($request->id);
+        return unserialize($lente);
+    }
+    
+    public function obtenerIDPrecargados(){
+        $lentes = Lente::all();
+        $subset = $lentes->map(function ($lentes) {
+                return collect($lente->toArray())
+                ->only(['id'])
+                ->all();
+            });
+    }
 }

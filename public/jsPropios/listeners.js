@@ -12,6 +12,8 @@ $("#btnRandom").click(mostrarPrecargadoRandom);
 
 $("#btn_save").click(guardarDatos);
 
+$("#btn_precargado").click(guardarPrecargado);
+
 $("#btn_download").click(generarPDF);
 
 //window.onload = function(){

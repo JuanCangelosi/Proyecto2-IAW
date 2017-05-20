@@ -458,21 +458,22 @@ function cargarPrecargados(precargados){
 function obtenerPrecargado(id){
     $.ajax({
         url: "/obtenerprecargados",
-        data: {id:1},
+        data: {id},
         context: document.body,
         success: function (data) {
-           cargarPrecargados(data);
+           obtenerPrecargados(data);
         }
     });
 }
 
 function guardarPrecargado(){
     $.ajax({
+        type: 'post',
         url: "/guardarprecargado",
-        data: seleccion,
+        data: {seleccion},
         context: document.body,
         success: function (data) {
-           cargarPrecargados(data);
+           guardarPrecargado(data);
         }
     });
 }

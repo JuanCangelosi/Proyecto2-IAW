@@ -13,14 +13,13 @@ $(function() {
 });
 
 $(function() {
-   /* $.ajax({
-        url: "/precargados",
+   $.ajax({
+        url: "/obteneridprecargados",
         context: document.body,
         success: function (data) {
-           cargarPrecargados(data);
+            console.log(data);
+            cargarPrecargados(data);
         }
     });
-    */
-    cargarPrecargados([1,2,3]);
 });
 

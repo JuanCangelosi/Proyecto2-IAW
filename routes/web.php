@@ -32,6 +32,9 @@ Route::get('auth/facebook/callback', 'SocialAuthController@handleProviderCallbac
 
 Route::get('/customize', 'LenteController@index');
 
+Route::get('/obtenerprecargado', 'LenteController@obtenerPrecargado');
+Route::post('/guardarprecargado', 'LenteController@guardarPrecargado');
+Route::get('/obteneridprecargados', 'LenteController@obtenerIDPrecargados');
 
 Route::get('/loadprecargado', 'LoadPrecargadoController@index');
 
@@ -40,7 +43,6 @@ Route::post('adminpanel/addvidrio', 'VidrioController@cargarVidrio');
 Route::post('adminpanel/addmarco', 'MarcoController@cargarMarco');
 Route::post('adminpanel/addpatilla', 'PatillaController@cargarPatilla');
 Route::post('adminpanel/addtamanos', 'TamanoController@cargarTamano');
-
 
 
 Route::post('adminpanel/upmodelo', 'ModeloController@modificarModelo');

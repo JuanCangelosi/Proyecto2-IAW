@@ -4,7 +4,7 @@ var seleccion = {es_especial: "NO",
 		detalle: "",
         vidrio: {tipo: "", color: "", precio: ""},
 		marco: {tipo: "", color: "", precio: ""},
-		tamaño: {medida: "", ancho_lente:"", ancho_puente:""},
+		tamano: {medida: "", ancho_lente:"", ancho_puente:""},
 		patillas: {tipo: "", color: "", precio: "", grabado:[]
 					},
 	}
@@ -467,13 +467,13 @@ function obtenerPrecargado(id){
 }
 
 function guardarPrecargado(){
+    setPrecio(json);
     $.ajax({
-        type: 'post',
+        type: 'POST',
         url: "/guardarprecargado",
-        data: {seleccion},
-        context: document.body,
-        success: function (data) {
-           guardarPrecargado(data);
+        data:  seleccion,
+        success: function () {
+           //guardarPrecargado(data);
         }
     });
 }

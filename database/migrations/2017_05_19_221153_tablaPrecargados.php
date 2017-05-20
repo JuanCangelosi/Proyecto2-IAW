@@ -18,6 +18,7 @@ class TablaPrecargados extends Migration
         Schema::create('precargados', function (Blueprint $table) {
             $table->increments('id');
             $table->string('detalle');
+            $table->timestamps();
         });
     }
 

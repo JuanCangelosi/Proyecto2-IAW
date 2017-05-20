@@ -39,21 +39,26 @@ class LenteController extends Controller
     
     public function guardarPrecargado(Request $request){
         $lente = new Lente;
-        //$lente->detalle = serialize($request);
-        //$lente->save();
+        $lente->modelo = $request->modelo;
+        $lente->detalle = $request->detalle;
+        $lente->precio_base = $request->precio_base;
+        $lente->vidrio = serialize($request->vidrio);
+        $lente->marco = serialize($request->marco);
+        $lente->patilla = serialize($request->patillas);
+        $lente->tamano = serialize($request->tamano);
+        $lente->save();
     }
     
     public function obtenerPrecargado(Request $request){
         $lente = Lente::find($request->id);
-        return unserialize($lente);
+        $lente->vidrio = unserialize($lente->vidrio);
+        $lente->marco = unserialize($lente->marco);
+        $lente->patilla = unserialize($lente->patilla);
+        $lente->tamano = unserialize($lente->tamano);
+        return $lente;
     }
     
     public function obtenerIDPrecargados(){
-        $lentes = Lente::all();
-        $subset = $lentes->map(function ($lentes) {
-                return collect($lente->toArray())
-                ->only(['id'])
-                ->all();
-            });
+        
     }
 }

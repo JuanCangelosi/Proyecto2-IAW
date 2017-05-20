@@ -1,6 +1,7 @@
 @extends ('layouts.master')
 
 @section ('navbar-toggleIzq') 
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <ul class="navbar-brand">
     <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

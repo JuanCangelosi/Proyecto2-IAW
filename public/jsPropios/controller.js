@@ -152,11 +152,14 @@ function escribirDetalle(lenteSeleccionado) {
 */
 
 function guardarDatos() {
-   // $.getJSON("jspropios/caracteristicas.json", function(json) {
         setPrecio(json);
-        console.log(seleccion);
-    //     }
-    //          );
+        localStorage.setItem("guardar",JSON.stringify(seleccion));
+}
+
+function cargarDatos() {
+    var datos = JSON.parse(localStorage.getItem("guardar"));
+    console.log(datos);
+    recuperarDatos(datos);
 }
 
 function generarPDF() {
@@ -447,21 +450,12 @@ function getShtEstilo(){
 	return document.getElementById("cssEstilo").sheet;
 }
 
-function cargarPrecargados(precargados){
-    var i=0,
-        max;
-    for(i=0, max=precargados.length; i<max; i++ ){
-        $("#submenuPrecargados").append('<li><a tabindex="-1" href="#" onclick="obtenerPrecargado('+i+')" >Precargado'+i+'</a></li>')
-    }
-}
-
 function obtenerPrecargado(id){
     $.ajax({
-        url: "/obtenerprecargados",
+        url: "/obtenerprecargado",
         data: {id},
-        context: document.body,
-        success: function (data) {
-           obtenerPrecargados(data);
+        success: function (data) { 
+            recuperarDatos(data);
         }
     });
 }
@@ -480,11 +474,21 @@ function guardarPrecargado(){
 
 
 function getPrecargados(){
+     $('#submenuPrecargados').empty();
      $.get('/precargados',function(precargados){
         $.each(precargados, function(i, pre) {
         //$('#submenuPrecargados').append('<a  tabindex="-1" value="'+pre.id+'">ID: '+pre.id+' | MOD: '+pre.modelo+'</a>');
-         $('#submenuPrecargados').append('<li><a value="'+pre.id+'">ID: '+pre.id+' | MOD: '+pre.modelo+'</a> </li>'); 
+         $('#submenuPrecargados').append('<li><a value="'+pre.id+'" onclick="obtenerPrecargado('+pre.id+');">ID: '+pre.id+' | MOD: '+pre.modelo+'</a> </li>'); 
         });
     });
+}
+
+// Recibe un json como caracteristicas y con esto arma el lente
+function recuperarDatos(datos){
+    mostrarModelo(datos.modelo,'lns_'+datos.vidrio.tipo+'_'+datos.vidrio.color,
+                  'frnt_'+datos.marco.tipo+'_'+datos.marco.color,
+                  'tmp_'+datos.patillas.tipo+'_'+datos.patillas.color);
+            escribirModelo(datos.modelo);
+            escribirDetalle(datos.modelo);
 }
 

@@ -85,6 +85,8 @@ function getVidrios(){
         $.each(vidrios, function(i, vid) {
         $('#sel_svid').append('<option value="'+vid.tipo+'">'+vid.tipo+'</option>');
         });
+        console.log(vidrios[0]);
+         $('#ColorVidrio').val(vidrios[0].color);
     });   
 }
 

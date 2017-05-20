@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Modelo;
+use Illuminate\Support\Facades\Auth;
 
 class ModeloController extends Controller
 {
@@ -43,6 +44,11 @@ class ModeloController extends Controller
       
     private function eliminarModelo($modelo){
         $modelo->delete();
-  
+    }
+    
+    public function getModelos(){
+        if(request()->ajax())
+            if(Auth::check() && Auth::user()->isAdmin())
+                return Modelo::all();
     }
 }

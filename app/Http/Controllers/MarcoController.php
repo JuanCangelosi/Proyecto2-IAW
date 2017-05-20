@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Marco;
-
+use Illuminate\Support\Facades\Auth;
 class MarcoController extends Controller
 {
      
@@ -30,8 +30,10 @@ class MarcoController extends Controller
         $marco->delete();
     }
     
-     
+     */
     public function getMarco(){
-        
-    }*/
+        if(request()->ajax())
+            if(Auth::check() && Auth::user()->isAdmin())
+                return Marco::all();
+    }
 }

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Patilla;
-
+use Illuminate\Support\Facades\Auth;
 class PatillaController extends Controller
 {
     public function cargarPatilla(Request $request){
@@ -29,8 +29,10 @@ class PatillaController extends Controller
         $patilla = Patilla::find(request->id);
         $patilla->delete();
     }
-    
-     public function getPatilla(){
-        
-    }*/
+    */
+    public function getPatillas(){
+        if(request()->ajax())
+            if(Auth::check() && Auth::user()->isAdmin())
+                return Patilla::all();
+    }
 }

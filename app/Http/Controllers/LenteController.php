@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 
 use App\Lente;
@@ -10,6 +9,7 @@ use App\Patilla;
 use App\Modelo;
 use App\Marco;
 use App\Tamano;
+use Illuminate\Support\Facades\Auth;
 
 
 class LenteController extends Controller
@@ -58,7 +58,21 @@ class LenteController extends Controller
         return $lente;
     }
     
+    public function getPrecargados(){
+         if(request()->ajax())
+            return Lente::all();
+    }
+    
+    public function eliminarPrecargado(Request $request){
+        if (Auth::check() && Auth::user()->isAdmin()){
+            $request=$request->all();        
+            $lente=Lente::find($request['id_modelo']);
+            $lente->delete();
+            return redirect('/loadprecargado')->with('message', 'Se ha eliminado Modelo Precargado con exito.'); 
+        }
+    }
+    
     public function obtenerIDPrecargados(){
-        
+
     }
 }

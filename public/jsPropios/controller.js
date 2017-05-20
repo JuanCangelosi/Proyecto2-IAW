@@ -479,3 +479,12 @@ function guardarPrecargado(){
 }
 
 
+function getPrecargados(){
+     $.get('/precargados',function(precargados){
+        $.each(precargados, function(i, pre) {
+        //$('#submenuPrecargados').append('<a  tabindex="-1" value="'+pre.id+'">ID: '+pre.id+' | MOD: '+pre.modelo+'</a>');
+         $('#submenuPrecargados').append('<li><a value="'+pre.id+'">ID: '+pre.id+' | MOD: '+pre.modelo+'</a> </li>'); 
+        });
+    });
+}
+

@@ -48,35 +48,13 @@ Route::post('adminpanel/addtamanos', 'TamanoController@cargarTamano');
 Route::post('adminpanel/upmodelo', 'ModeloController@modificarModelo');
 Route::post('adminpanel/upvidrio', 'VidrioController@modificarVidrio');
 Route::post('adminpanel/uptamano', 'TamanoController@modificarTamano');
+Route::post('adminpanel/delprecargado', 'LenteController@eliminarPrecargado');
 
-// Para ajax
-Route::get('/modelos',function(){
-    if(Request::ajax()){
-        if(Auth::check() && Auth::user()->isAdmin())
-            return App\Modelo::all();
-    } 
-});
-Route::get('/vidrios',function(){
-    if(Request::ajax()){
-        if(Auth::check() && Auth::user()->isAdmin())
-            return App\Vidrio::all();
-    } 
-});
-Route::get('/marcos',function(){
-    if(Request::ajax()){
-        if(Auth::check() && Auth::user()->isAdmin())
-            return App\Marco::all();
-    } 
-});
-Route::get('/patilla',function(){
-    if(Request::ajax()){
-        if(Auth::check() && Auth::user()->isAdmin())
-            return App\Patilla::all();
-    } 
-});
-Route::get('/tamanos',function(){
-    if(Request::ajax()){
-        if(Auth::check() && Auth::user()->isAdmin())
-            return App\Tamano::all();
-    } 
-});
+Route::get('/modelos', 'ModeloController@getModelos');
+Route::get('/vidrios', 'VidrioController@getVidrios');
+Route::get('/marcos', 'MarcoController@getMarcos');
+Route::get('/patilla', 'PatillaController@getPatillas');
+Route::get('/tamanos', 'TamanoController@getTamanos');
+Route::get('/precargados', 'LenteController@getPrecargados');
+
+

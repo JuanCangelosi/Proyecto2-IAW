@@ -24,7 +24,8 @@ function mostrarModificarCaracteristicas(){
 function mostrarModificarPrecargados(){
     $("#opcion_panel_admin").remove();
     $("#h_pAdmin").append('<span id="opcion_panel_admin">modificar precargados</span>');
-    $("#panelmostraropciones").load("htmlDinamicos/modificarPrecargados.html");
+    $("#panelmostraropciones").load("htmlDinamicos/modificarPrecargados.blade.php");
+    getPrecargados();
 }
 
 function agregarModelo(){
@@ -82,7 +83,6 @@ function getModelos(){
 function getVidrios(){
     $.get('/vidrios',function(vidrios){
         $.each(vidrios, function(i, vid) {
-        console.log(vid);
         $('#sel_svid').append('<option value="'+vid.tipo+'">'+vid.tipo+'</option>');
         });
     });   
@@ -106,5 +106,9 @@ function getTamanos(){
 }
 
 function getPrecargados(){
-    
+     $.get('/precargados',function(precargados){
+        $.each(precargados, function(i, pre) {
+        $('#sel_dprec').append('<option value="'+pre.id+'">ID: '+pre.id+' | MOD: '+pre.modelo+' | CREADO: '+pre.created_at+'</option>');
+        });
+    });
 }

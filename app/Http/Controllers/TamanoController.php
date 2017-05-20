@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Tamano;
-
+use Illuminate\Support\Facades\Auth;
 class TamanoController extends Controller
 {
     public function cargarTamano(Request $request){
@@ -42,8 +42,10 @@ class TamanoController extends Controller
     public function eliminarTamano($tamano){
         $tamano->delete();
     }
-     /*
-    public function getTamano(){
-        
-    }*/
+    
+    public function getTamanos(){
+        if(request()->ajax())
+            if(Auth::check() && Auth::user()->isAdmin())
+                return Tamano::all();
+    }
 }

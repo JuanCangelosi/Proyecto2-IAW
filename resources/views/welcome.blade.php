@@ -13,16 +13,16 @@
                 <button class="btn btn-outline-success my-2 my-sm-0" id="btnRandom" onclick="mostrarPrecargadoRandom()">Cargar Random </button>
             </li>
             <li class="dropdown-submenu">
-                <a class="test" tabindex="-1" href="#">Precargados<span class="caret"></span></a>
+                <a class="test" tabindex="-1" id="menuPrecargados" onclick="getPrecargados()">Precargados<span class="caret"></span></a>
                 <ul class="dropdown-menu" id="submenuPrecargados">
-                  <li><a tabindex="-1" href="#">2nd level dropdown</a></li>
-                  <li><a tabindex="-1" href="#">2nd level dropdown</a></li>
+                  <li><span tabindex="-1">Modelos precargados</span></li>
+                  
                 </ul>
             </li>
             <li class="dropdown-submenu">
                 <a class="test" tabindex="-1" href="#">Guardados<span class="caret"></span></a>
                 <ul class="dropdown-menu" id="submenuGuardados">
-                  <li><a tabindex="-1" href="#">2nd level dropdown</a></li>
+                  <li><a tabindex="-1" href="#">Modelos guardados</a></li>
                   <li><a tabindex="-1" href="#">2nd level dropdown</a></li>
                 </ul>
             </li>

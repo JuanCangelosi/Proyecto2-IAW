@@ -22,7 +22,7 @@ class VidrioController extends Controller
      public function modificarVidrio(Request $request){
         if(Auth::check() && Auth::user()->isAdmin()){
             $request = $request->all();
-            if($request['nombre_modeloModif']!=null){
+            if(array_key_exists('nombre_tipo', $request)){
                 $vidrio= Vidrio::where('tipo', $request['nombre_tipo'])->get()->first();
                 if($request['button']=='update'){  
                     $this->updateVidrio($vidrio, $request);
@@ -43,7 +43,7 @@ class VidrioController extends Controller
     private function updateVidrio($vidrio, $request){
         if($request['nombre_modeloModif']!=null)
             $vidrio->tipo=$request['nombre_modeloModif'];
-        if($request['ColorVidrio']!='Nada seleccionado' || $request['ColorVidrio']!=null){
+        if($request['ColorVidrio']!='Nada seleccionado' && $request['ColorVidrio']!=null){
             $colores= explode(",",$request['ColorVidrio']);
             $vidrio->colores =serialize($colores);
         }

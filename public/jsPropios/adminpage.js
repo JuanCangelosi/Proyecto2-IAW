@@ -130,7 +130,6 @@ function getPrecargados(){
 
 function cambiarColoresVidrios(){
     var selected= $('#sel_svid').val();
-    console.log(selected);
     $.get('/vidrios/colores/',{nombre_tipo: selected}, function(colores){ 
         $('#ColorVidrio').attr('value', armarColoresString(colores));
     });
@@ -146,7 +145,6 @@ function cambiarColoresMarcos(){
 function cambiarColoresPatillas(){
     var selected= $('#sel_spat').val();
     $.get('/patillas/colores/',{nombre_tipo: selected}, function(colores){
-        console.log(colores);
         $('#ColorPatilla').attr('value', armarColoresString(colores));
     });
 }

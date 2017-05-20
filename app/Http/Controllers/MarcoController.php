@@ -20,7 +20,7 @@ class MarcoController extends Controller
     public function modificarMarco(Request $request){
         if(Auth::check() && Auth::user()->isAdmin()){
             $request = $request->all();
-            if($request['nombre_modeloModif']!=null){
+            if(array_key_exists('nombre_tipo', $request)){
                 $marco= Marco::where('tipo', $request['nombre_tipo'])->get()->first();
                 if($request['button']=='update'){  
                     $this->updateMarco($marco, $request);

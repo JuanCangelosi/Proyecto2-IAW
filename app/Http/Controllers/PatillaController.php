@@ -20,7 +20,7 @@ class PatillaController extends Controller
      public function modificarPatilla(Request $request){
         if(Auth::check() && Auth::user()->isAdmin()){
             $request = $request->all();
-            if($request['nombre_modeloModif']!=null){
+            if(array_key_exists('nombre_tipo', $request)){
                 $patilla= Patilla::where('tipo', $request['nombre_tipo'])->get()->first();
                 if($request['button']=='update'){  
                     $this->updatePatilla($patilla, $request);

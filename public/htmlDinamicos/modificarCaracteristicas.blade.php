@@ -12,6 +12,11 @@
                          <select name="nombre_modelo" class="form-control" id="sel_smod">
                         </select>
                     </div>
+                    
+                    <label for="nombre_modeloModif" class="col-2 col-form-label form-texto-2">Nombre nuevo</label>
+                    <div class="col-10">
+                        <input class="form-control" type="text" name="nombre_modeloModif" id="nombre_modeloModif">
+                    </div>
 
                     <label for="precio_modelo" class="col-2 col-form-label form-texto-2">Precio</label>
                     <div class="col-10">
@@ -39,7 +44,11 @@
                          <select name="nombre_tipo" class="form-control" id="sel_svid">
                         </select>
                     </div>
-
+                    <label for="nombre_modeloModif" class="col-2 col-form-label form-texto-2">Nombre nuevo</label>
+                    <div class="col-10">
+                        <input class="form-control" type="text" name="nombre_modeloModif" id="nombre_modeloModif">
+                    </div>
+                    
                     <label for="example-text-input" class="col-2 col-form-label form-texto-2">Agregar color HEXA</label>
                     <div class="col-10">
                             <input class="form-control" type="text" id="ColorVidrio" value="FFFFFF" name="ColorVidrio">
@@ -84,6 +93,11 @@
                          <select name="nombre_medida" class="form-control" id="sel_stam">
                         </select>
                     </div>
+                        
+                        <label for="nombre_medidaModif" class="col-2 col-form-label form-texto-2">Nombre nuevo de medida</label>
+                        <div class="col-10">
+                            <input class="form-control" type="text" name="nombre_medidaModif" id="nombre_medidaModif">
+                        </div>
 
                         <label for="example-text-input" class="col-2 col-form-label form-texto-2">Ancho Puente</label>
                         <div class="col-10">

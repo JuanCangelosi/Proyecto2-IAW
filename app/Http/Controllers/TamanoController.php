@@ -32,6 +32,8 @@ class TamanoController extends Controller
     
     
     private function updateTamano($tamano, $request){
+        if($request['nombre_medidaModif']!=null)
+            $tamano->medida=$request['nombre_medidaModif'];
         if($request['AnchoPuente']!=null)
             $tamano->ancho_puente = $request['AnchoPuente'];
         if($request['AnchoLente']!=null)

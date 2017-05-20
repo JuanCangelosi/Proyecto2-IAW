@@ -91,11 +91,10 @@ class LenteController extends Controller
     }
     
     public function getLentesGuardados(){
-        /*$id_usuario = Auth::user()->id;
+        $id_usuario = Auth::user()->id;
         if(request()->ajax())
-            $retorno= LenteUsuario::where('id_usuario',$id_usuario);
-            return $retorno::all();
-            */
+            $retorno= LenteUsuario::where('id_usuario',$id_usuario)->get();
+            return $retorno;
     }
     /*
     public function eliminarLenteGuardado(Request $request){

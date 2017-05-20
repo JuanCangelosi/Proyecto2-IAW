@@ -12,6 +12,8 @@ $("#btn_load").click(cargarDatos);
 
 $("#btn_save").click(guardarDatos);
 
+$("#btn_saveReg").click(guardarDatosReg);
+
 $("#btn_precargado").click(guardarPrecargado);
 
 $("#btn_download").click(generarPDF);

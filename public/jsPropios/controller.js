@@ -492,3 +492,34 @@ function recuperarDatos(datos){
             escribirDetalle(datos.modelo);
 }
 
+function guardarDatosReg() {
+        setPrecio(json);
+         $.ajax({
+        type: 'POST',
+        url: "/guardarLente",
+        data:  seleccion,
+        success: function () {
+           //guardarPrecargado(data);
+        }
+    });
+}
+
+function getGuardados(){
+     $('#submenuGuardados').empty();
+     $.get('/guardados',function(guardados){
+        $.each(guardados, function(i, pre) {
+        //$('#submenuPrecargados').append('<a  tabindex="-1" value="'+pre.id+'">ID: '+pre.id+' | MOD: '+pre.modelo+'</a>');
+         $('#submenuGuardados').append('<li><a value="'+pre.id+'" onclick="obtenerGuardado('+pre.id+');">ID: '+pre.id+' | MOD: '+pre.modelo+'</a> </li>'); 
+        });
+    });
+}
+
+function obtenerGuardado(id) {
+    $.ajax({
+        url: "/obtenerGuardado",
+        data: {id},
+        success: function (data) { 
+            recuperarDatos(data);
+        }
+    });
+}

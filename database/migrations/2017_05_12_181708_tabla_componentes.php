@@ -53,14 +53,18 @@ class TablaComponentes extends Migration
             $table->timestamps();
         });
         
-       /* Schema::create('precargados', function (Blueprint $table) {
-            $table->unsignedInteger('id_modelo');
-            $table->unsignedInteger('id_vidrio');
-            $table->unsignedInteger('id_marco');
-            $table->unsignedInteger('id_patilla');
+       Schema::create('lente_usuarios', function (Blueprint $table) {
+            $table->increments('id');
+            $table->unsignedInteger('id_usuario');
+            $table->string('modelo');
+            $table->string('precio_base');
+            $table->string('detalle');
+            $table->string('vidrio');
+            $table->string('marco');
+            $table->string('patilla');
+            $table->string('tamano');
             $table->timestamps();
         });
-        */
     }
 
     /**
@@ -75,6 +79,6 @@ class TablaComponentes extends Migration
         Schema::drop('marcos');
         Schema::drop('patillas');
         Schema::drop('tamanos');
-       // Schema::drop('precargados');
+        Schema::drop('lente_usuarios');
     }
 }

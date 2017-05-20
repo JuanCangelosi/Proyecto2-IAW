@@ -47,7 +47,7 @@ Route::post('adminpanel/addtamanos', 'TamanoController@cargarTamano');
 
 Route::post('adminpanel/upmodelo', 'ModeloController@modificarModelo');
 Route::post('adminpanel/upvidrio', 'VidrioController@modificarVidrio');
-
+Route::post('adminpanel/uptamano', 'TamanoController@modificarTamano');
 
 // Para ajax
 Route::get('/modelos',function(){

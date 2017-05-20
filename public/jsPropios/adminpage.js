@@ -18,6 +18,7 @@ function mostrarModificarCaracteristicas(){
     $("#panelmostraropciones").load("htmlDinamicos/modificarCaracteristicas.blade.php");
     getModelos();
     getVidrios();
+    getTamanos();
 }
 
 function mostrarModificarPrecargados(){

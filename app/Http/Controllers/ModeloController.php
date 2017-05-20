@@ -34,6 +34,8 @@ class ModeloController extends Controller
     }
     
     private function updateModelo($modelo, $request){
+        if($request['nombre_modeloModif']!=null)
+            $modelo->modelo=$request['nombre_modeloModif'];
         if($request['descripcionModelo']!=null)
             $modelo->detalle = $request['descripcionModelo'];
         if($request['precio_modelo']!=null)

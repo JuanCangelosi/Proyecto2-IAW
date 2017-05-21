@@ -78,12 +78,12 @@
                         
                     </ul>
                 </div>
-                <div class="col-md-4-offset-2">
+                <div class="col-md-6-offset-2">
                     <ul class="list-inline quicklinks">
-                        <li><a href="{{ url('/about') }}">Aspectos de la pagina</a></li>
+                        <li><a href="{{ url('/about') }}">Aspectos sobre la página</a></li>
+                        <li><a href="/readme.html">Doc de aspecto sobre la página</a></li>
                         <li><a href="https://cs.uns.edu.ar/~dcm/iaw/">Ingeniería de Aplicaciones Web</a>
-
-                    </ul>
+                  </ul>
                 </div>
             </div>
         </div>

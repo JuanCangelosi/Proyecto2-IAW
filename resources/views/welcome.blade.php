@@ -10,7 +10,7 @@
 
         <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
             <li>
-                <button class="btn btn-outline-success my-2 my-sm-0" id="btnRandom" onclick="mostrarPrecargadoRandom()">Cargar Random </button>
+                <a class="btn btn-outline-success my-2 my-sm-0" id="btnRandom" onclick="mostrarPrecargadoRandom()">Cargar Random </a>
             </li>
             <li class="dropdown-submenu">
                 <a class="test" tabindex="-1" id="menuPrecargados" onclick="getPrecargados()">Precargados<span class="caret"></span></a>
@@ -36,7 +36,7 @@
 @section ('navbar-toggleDer') 
  @if (Auth::check())
     @if(Auth::user()->isAdmin())
-     <a href="{{ url('/loadprecargado') }}" class="btn btn-outline-success my-2 my-sm-0">Cargar precargado</a>
+    <li> <a href="{{ url('/loadprecargado') }}" class="btn btn-outline-success my-2 my-sm-0">Cargar precargado</a></li>
     @endif
 @endif
 @endsection
@@ -136,9 +136,9 @@
                         <div class="col-md-3 center-btn btn btn-primary btn_color4 btn-shortspace" id="btn_precargado">Guardar Como Precargado
                         </div>
                         @else
-                        <div class="col-md-2 center-btn btn btn-primary" id="btn_saveReg">Guardar
+                        <div class="col-md-3 center-btn btn btn-primary" id="btn_saveReg">Guardar
                         </div>
-                        <div class="col-md-2 center-btn btn btn-primary btn_color3" id="btn_download">Descargar
+                        <div class="col-md-3 center-btn btn btn-primary btn_color3" id="btn_download">Descargar
                         @endif
                     @else
                 <div class="row col-md-9">

@@ -1106,7 +1106,7 @@ a {
 }
 a:hover,
 a:focus {
-  color: #AF1B35;
+  color: #2A2A2A;
   text-decoration: underline;
 }
 a:focus {
@@ -4546,7 +4546,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-default .navbar-nav > .open > a,
 .navbar-default .navbar-nav > .open > a:hover,
 .navbar-default .navbar-nav > .open > a:focus {
-  background-color: #c34113;
+  background-color: #AF1B35;
   color: #ffffff;
 }
 @media (max-width: 767px) {

@@ -6828,3 +6828,30 @@ p{
 .form-texto-2{
     color: #FFFFFF;
 }
+
+section h2.section-heading {
+  color: #FFFFFF;
+}
+section h3.section-subheading {
+    color: #FFFFFF;
+}
+
+section h4{
+      color:#FFFFFF;
+}
+
+#sreadme{
+    color:black;
+}
+
+#sreadme h2,, h3, h4{
+    color:#FFFFFF;
+}
+
+#h_title{
+    color:#000000;
+}
+
+a{
+   color:#337ab7; 
+}

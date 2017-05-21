@@ -6985,3 +6985,34 @@ body{
 .form-texto-2{
     color: #000000;
 }
+
+section h2.section-heading {
+  color:#000000;
+}
+section h3.section-subheading {
+  color:#000000;
+}
+
+section h4{
+      color:#000000;
+}
+
+.cont-about{
+    background-color: #EEEEEE;
+}
+
+#sreadme{
+    color:black;
+}
+
+.hreadme{
+    color:#000000;
+}
+
+#h_title{
+    color:#FFFFFF;
+}
+
+.aReadme{
+   color:#337ab7; 
+}

@@ -24,7 +24,10 @@
                     </div>
 
                     <label class="form-texto-2" for="descripcionModelo">Descripcion del modelo</label>
+                   <div class="col-10">
                     <textarea class="form-control" id="descripcionModelo" name="descripcionModelo" rows="3"></textarea>
+                    </div>                
+                
                 </div>
                 <div>  
                     <button type="submit" name="button" value="update" class="btn btn-primary">Modificar</button>  <button type="submit" name="button" value="eliminar" class="btn btn-primary btn_color3">Eliminar</button>

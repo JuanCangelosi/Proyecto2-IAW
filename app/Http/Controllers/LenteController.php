@@ -75,6 +75,20 @@ class LenteController extends Controller
         }
     }
     
+    public function getCaracteristicas(Request $request){
+        if(request()->ajax()){
+            $request = $request->all();
+            if(array_key_exists('modelo', $request)){
+                $lente=Lente::find($request['modelo']);
+              /*  $lente->vidrio = unserialize($lente->vidrio);
+                $lente->marco = unserialize($lente->marco);
+                $lente->patilla = unserialize($lente->patilla);
+                $lente->tamano = unserialize($lente->tamano);*/
+                return $lente;
+            }
+        }
+    }
+    
     public function obtenerIDPrecargados(){
 
     }

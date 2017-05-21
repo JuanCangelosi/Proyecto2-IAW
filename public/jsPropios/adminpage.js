@@ -115,6 +115,7 @@ function getTamanos(){
     $.get('/tamanos',function(tamanos){
         $.each(tamanos, function(i, tam) {
         $('#sel_stam').append('<option value="'+tam.medida+'">'+tam.medida+'</option>');
+        $("#sel_spat").val('0');
         });
     });
 }
@@ -123,10 +124,25 @@ function getPrecargados(){
      $.get('/precargados',function(precargados){
         $.each(precargados, function(i, pre) {
         $('#sel_dprec').append('<option value="'+pre.id+'">ID: '+pre.id+' | MOD: '+pre.modelo+' | CREADO: '+pre.created_at+'</option>');
+        $("#sel_spat").val('0');
         });
     });
 }
 
+function cambiarCaracteristicasPrecargado(){
+    var selected= $('#sel_dprec').val();
+    $.get('/precargados/caracteristicas',{modelo: selected}, function(precargado){
+        console.log(precargado);
+         $('#nombre_modeloModif').attr('value', precargado.modelo);
+         $('#precio_modelo').attr('value', precargado.precio_base);
+         $('#descripcionModelo').val(precargado.detalle);
+         $('#caracteristicasVidrio').val(precargado.vidrio);
+         $('#caracteristicasMarco').val(precargado.marco);
+         $('#caracteristicasPatilla').val(precargado.patilla);
+         $('#caracteristicasTamano').val(precargado.tamano);
+        
+    });
+}
 
 function cambiarColoresVidrios(){
     var selected= $('#sel_svid').val();

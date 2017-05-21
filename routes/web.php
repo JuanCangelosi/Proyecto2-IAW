@@ -63,6 +63,7 @@ Route::get('/tamanos', 'TamanoController@getTamanos');
 Route::get('/precargados', 'LenteController@getPrecargados');
 Route::get('/guardados', 'LenteController@getLentesGuardados');
 
+Route::get('/precargados/caracteristicas', 'LenteController@getCaracteristicas');
 Route::get('/vidrios/colores', 'VidrioController@getColores');
 Route::get('/marcos/colores', 'MarcoController@getColores');
 Route::get('/patillas/colores', 'PatillaController@getColores');

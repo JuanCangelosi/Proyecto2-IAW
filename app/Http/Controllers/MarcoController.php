@@ -51,8 +51,10 @@ class MarcoController extends Controller
     
     public function getColores(Request $request){
         $request = $request->all();
-        $marco=Marco::where('tipo', $request['nombre_tipo'])->get()->first();           
-        return unserialize($marco->colores);
+        if(array_key_exists('nombre_tipo', $request)){
+            $marco=Marco::where('tipo', $request['nombre_tipo'])->get()->first();           
+            return unserialize($marco->colores);
+        }
     }
 
     public function getMarcos(){

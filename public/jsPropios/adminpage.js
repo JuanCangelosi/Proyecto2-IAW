@@ -5,6 +5,8 @@ $("#btnModificarCar").click(mostrarModificarCaracteristicas);
 $("#btnModificarPrecarg").click(mostrarModificarPrecargados);
 
 $("#togleModelo").click(getModelos);
+$('form').submit(function(e){ e.preventDefault();
+                             alert( "Handler for .submit() called." ); });
 
 function mostrarAgregarCaracteristicas(){
     $("#opcion_panel_admin").remove();
@@ -123,7 +125,7 @@ function getTamanos(){
 function getPrecargados(){
      $.get('/precargados',function(precargados){
         $.each(precargados, function(i, pre) {
-        $('#sel_dprec').append('<option value="'+pre.id+'">ID: '+pre.id+' | MOD: '+pre.modelo+' | CREADO: '+pre.created_at+'</option>');
+        $('#sel_dprec').append('<option value="'+pre.id+'">ID: '+pre.id+' | MOD: '+pre.modelo+' | CREADO: '+pre.created_at+' | MODIFICADO: '+pre.updated_at+'</option>');
         $("#sel_spat").val('0');
         });
     });
@@ -176,3 +178,46 @@ function armarColoresString(colores){
     return str;
 }
 
+function confUpdate(id){
+        $.confirm({
+        title: 'Confirmar acción de modificar',
+        buttons: {
+            Confirmar: {
+                btnClass: 'btn-green',
+                action: function () {
+                    $('<input />').attr('type', 'hidden')
+                        .attr('name', "button")
+                        .attr('value', "update")
+                        .appendTo('#'+id);
+                    $('#'+id).submit();
+                }
+            },
+            Cancelar: {
+                action: function () {
+                }
+            }
+        }
+    });
+}
+
+function confDelete(id){
+        $.confirm({
+        title: 'Confirmar acción de eliminar',
+        buttons: {
+            Confirmar: {
+                btnClass: 'btn-red',
+                action: function () {
+                    $('<input />').attr('type', 'hidden')
+                        .attr('name', "button")
+                        .attr('value', "eliminar")
+                        .appendTo('#'+id);
+                    $('#'+id).submit();
+                }
+            },
+            Cancelar: {
+                action: function () {
+                }
+            }
+        }
+    });
+}

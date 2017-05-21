@@ -22,15 +22,22 @@ class ModeloController extends Controller
     }
   
     public function modificarModelo(Request $request){
-        $request=$request->all();
-        $modelo= Modelo::where('modelo', $request['nombre_modelo'])->get()->first();
-        if($request['button']=='update'){
-          $this->updateModelo($modelo, $request);
-          return redirect('/loadprecargado')->with('message', 'Se ha modificado modelo con exito.');
-        }else {
-          $this->eliminarModelo($modelo);
-          return redirect('/loadprecargado')->with('message', 'Se ha eliminado modelo con exito.');  
+        if(Auth::check() && Auth::user()->isAdmin()){
+            $request = $request->all();
+            if(array_key_exists('nombre_modelo', $request)){
+                $modelo= Modelo::where('modelo', $request['nombre_modelo'])->get()->first();
+                if($request['button']=='update'){
+                  $this->updateModelo($modelo, $request);
+                  return redirect('/loadprecargado')->with('message', 'Se ha modificado modelo con exito.');
+                }else {
+                  $this->eliminarModelo($modelo);
+                  return redirect('/loadprecargado')->with('message', 'Se ha eliminado modelo con exito.');  
+                }
+            }
+            else return redirect('/loadprecargado')->with('Errormessage', 'Tiene que especificar de modelo para realizar operacion sobre modelo.');
         }
+        else
+            return redirect('/loadprecargado')->with('Errormessage', 'Se necesita permisos de administrador para realizar esta accion.'); 
     }
     
     private function updateModelo($modelo, $request){

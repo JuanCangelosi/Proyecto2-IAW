@@ -9,13 +9,16 @@ use Illuminate\Support\Facades\Auth;
 class VidrioController extends Controller
 {
     public function cargarVidrio(Request $request){
-        $request = $request->all();
-        $vidrio = new Vidrio;
-        $vidrio->tipo = $request['TipoVidrio'];
-        $vidrio->precio='50';
-        $vidrio->colores = serialize(array('000000'));
-        $vidrio->save();   
-        return redirect('/loadprecargado')->with('message', 'Se ha cargado Vidrio con exito.');
+        if(Auth::check() && Auth::user()->isAdmin()){
+            $request = $request->all();
+            $vidrio = new Vidrio;
+            $vidrio->tipo = $request['TipoVidrio'];
+            $vidrio->precio='50';
+            $vidrio->colores = serialize(array('000000'));
+            $vidrio->save();   
+            return redirect('/loadprecargado')->with('message', 'Se ha cargado Vidrio con exito.');
+        }else
+            return redirect('/loadprecargado')->with('Errormessage', 'Se necesita permisos de administrador para realizar esta accion.'); 
     }
 
     
@@ -32,8 +35,9 @@ class VidrioController extends Controller
                     return redirect('/loadprecargado')->with('message', 'Se ha eliminado el tipo de lente especificado con exito.');
                 }
             }else
-                return redirect('/loadprecargado')->with('message', 'Tiene que especificar tipo para realizar operacion sobre vidrios.');
-        }
+                return redirect('/loadprecargado')->with('Errormessage', 'Tiene que especificar tipo para realizar operacion sobre vidrios.');
+        }else
+            return redirect('/loadprecargado')->with('Errormessage', 'Se necesita permisos de administrador para realizar esta accion.'); 
     }
     
     private function eliminarVidrio($vidrio){

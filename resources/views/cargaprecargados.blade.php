@@ -17,9 +17,15 @@
     <br>
     <div class="row col-md-8 col-md-offset-2 panel-fomulario">
     @if(Session::has('message'))
-        <div class="alert alert-info">
+        <div class="alert alert-success">
             {{ Session::get('message') }}
         </div>
+     @else
+        @if(Session::has('Errormessage'))
+        <div class="alert alert-danger">
+            {{ Session::get('Errormessage') }}
+        </div>
+        @endif
     @endif
         <div class="panel panel-default">
             <div class="panel-heading headTextForm" id="h_pAdmin">Administrador:<span id="tab"/><span id="tab"/><span id="opcion_panel_admin"></span></div>

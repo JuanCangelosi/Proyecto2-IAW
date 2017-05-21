@@ -9,12 +9,15 @@ class MarcoController extends Controller
 {
      
     public function cargarMarco(Request $request){
-        $marco = new Marco;
-        $marco->tipo = $request->TipoMarco;
-        $marco->precio='50';
-        $marco->colores = serialize(array('000000'));
-        $marco->save();
-        return redirect('/loadprecargado')->with('message', 'Se ha cargado Marco con exito.');
+        if(Auth::check() && Auth::user()->isAdmin()){
+            $marco = new Marco;
+            $marco->tipo = $request->TipoMarco;
+            $marco->precio='50';
+            $marco->colores = serialize(array('000000'));
+            $marco->save();
+            return redirect('/loadprecargado')->with('message', 'Se ha cargado Marco con exito.');
+        }else
+            return redirect('/loadprecargado')->with('Errormessage', 'Se necesita permisos de administrador para realizar esta accion.'); 
     }
     
     public function modificarMarco(Request $request){
@@ -30,8 +33,10 @@ class MarcoController extends Controller
                     return redirect('/loadprecargado')->with('message', 'Se ha eliminado el tipo de marco especificado con exito.');
                 }
             }else
-                return redirect('/loadprecargado')->with('message', 'Tiene que especificar tipo para realizar operacion sobre marcos.');
+                return redirect('/loadprecargado')->with('Errormessage', 'Tiene que especificar tipo para realizar operacion sobre marcos.');
         }
+        else
+            return redirect('/loadprecargado')->with('Errormessage', 'Se necesita permisos de administrador para realizar esta accion.'); 
     }
     
     private function eliminarMarco($marco){

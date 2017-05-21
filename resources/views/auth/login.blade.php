@@ -51,18 +51,13 @@ Inicia sesión en Caniex™
                             </div>
                         </div>
 
-                        <div class="form-group">
+                      
                             <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Login
-                                </button>
-
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    Forgot Your Password?
-                                </a>         
-                                 <a class="btn btn-block btn-social btn-facebook" href="{{ route('fblogin') }}"> Login in with Facebook</a>
+                                <button type="submit" class="btn btn-primary">Login</button>  
+                                <!--<a class="btn btn-block btn-social btn-facebook" href="{{ route('fblogin') }}"><span class="fa fa-facebook"></span> Login in with Facebook</a>-->
+                                <a class="btn btn-facebook" href="{{ route('fblogin') }}"><span class="fa fa-facebook"> </span> Login with Facebook</a>
                             </div>
-                        </div>
+                            
                     </form>
                 </div>
             </div>

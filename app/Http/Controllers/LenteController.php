@@ -66,13 +66,45 @@ class LenteController extends Controller
             return Lente::all();
     }
     
-    public function eliminarPrecargado(Request $request){
+    public function modificarPrecargado(Request $request){
         if (Auth::check() && Auth::user()->isAdmin()){
-            $request=$request->all();        
-            $lente=Lente::find($request['id_modelo']);
-            $lente->delete();
-            return redirect('/loadprecargado')->with('message', 'Se ha eliminado Modelo Precargado con exito.'); 
-        }
+            $request=$request->all();    
+            if(array_key_exists('id_modelo', $request)){
+                $lente=Lente::find($request['id_modelo']);
+               if($request['button']=='update'){  
+                    $this->updateLente($lente, $request);
+                    return redirect('/loadprecargado')->with('message', 'Se ha editado lente precargado especificado con exito.');
+                }else{//el boton fueelminar     
+                    $this->eliminarLente($lente);
+                    return redirect('/loadprecargado')->with('message', 'Se ha eliminado lente precargado especificado.');
+                }
+            }else
+                return redirect('/loadprecargado')->with('Errormessage', 'Tiene que especificar tipo para realizar operacion sobre precargado.');
+        }else
+            return redirect('/loadprecargado')->with('Errormessage', 'Se necesita permisos de administrador para realizar esta accion.'); 
+    }
+    
+    private function eliminarLente($lente){
+        $lente->delete();
+    }
+    
+    private function updateLente($lente, $request){
+        if($request['nombre_modeloModif']!=null)
+            $lente->modelo=$request['nombre_modeloModif'];
+        if($request['precio_modelo']!=null)
+            $lente->precio_base=$request['precio_modelo'];
+        if($request['descripcionModelo']!=null)
+            $lente->detalle=$request['descripcionModelo'];
+        if($request['caracteristicasVidrio']!=null)
+            $lente->vidrio=$request['caracteristicasVidrio'];
+        if($request['caracteristicasMarco']!=null)
+            $lente->marco=$request['caracteristicasMarco'];
+        if($request['caracteristicasPatilla']!=null)
+            $lente->patilla=$request['caracteristicasPatilla'];
+        if($request['caracteristicasTamano']!=null)
+            $lente->tamano=$request['caracteristicasTamano'];
+        $lente->save();
+        
     }
     
     public function getCaracteristicas(Request $request){

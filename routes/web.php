@@ -53,7 +53,7 @@ Route::post('adminpanel/uptamano', 'TamanoController@modificarTamano');
 Route::post('adminpanel/upmarco', 'MarcoController@modificarMarco');
 Route::post('adminpanel/uppatilla', 'PatillaController@modificarPatilla');
 
-Route::post('adminpanel/delprecargado', 'LenteController@eliminarPrecargado');
+Route::post('adminpanel/upprecargado', 'LenteController@modificarPrecargado');
 
 Route::get('/modelos', 'ModeloController@getModelos');
 Route::get('/vidrios', 'VidrioController@getVidrios');

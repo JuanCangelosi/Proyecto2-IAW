@@ -4,11 +4,13 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <title>Caniex™ Anteojos</title>
-    <link rel="shortcut icon" type="images/CaniexIcon.png" href="images/CaniexIcon.png" />
+    <link href="images/CaniexIcon.png" rel="shortcut icon" type="images/CaniexIcon.png" />
     <!-- Bootstrap -->
     <link href="css/bootstrap-social.css" rel="stylesheet">
+    <link  href="css/font-awesome.min.css" rel="stylesheet">
 
     <!-- Estilos Propios -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link id="cssPropio" href="cssPropios/bootstrap1.css" rel="stylesheet">
-    <link id="cssEstilo" href="cssPropios/estilo.css" rel="stylesheet">
+    <link href="cssPropios/bootstrap1.css" rel="stylesheet" id="cssPropio">
+    <link href="cssPropios/estilo.css" rel="stylesheet" id="cssEstilo">
+    <link href="css/jquery-confirm.min.css" rel="stylesheet">

@@ -8,13 +8,16 @@ use Illuminate\Support\Facades\Auth;
 class PatillaController extends Controller
 {
     public function cargarPatilla(Request $request){
-        $request=$request->all();
-        $patilla = new Patilla;
-        $patilla->tipo = $request['TipoPatilla'];
-        $patilla->precio='50';
-        $patilla->colores = serialize(array('000000'));
-        $patilla->save();
-        return redirect('/loadprecargado')->with('message', 'Se ha cargado Patilla con exito.');
+        if(Auth::check() && Auth::user()->isAdmin()){
+            $request=$request->all();
+            $patilla = new Patilla;
+            $patilla->tipo = $request['TipoPatilla'];
+            $patilla->precio='50';
+            $patilla->colores = serialize(array('000000'));
+            $patilla->save();
+            return redirect('/loadprecargado')->with('message', 'Se ha cargado Patilla con exito.');
+        }else
+            return redirect('/loadprecargado')->with('Errormessage', 'Se necesita permisos de administrador para realizar esta accion.'); 
     }
     
      public function modificarPatilla(Request $request){
@@ -30,8 +33,9 @@ class PatillaController extends Controller
                     return redirect('/loadprecargado')->with('message', 'Se ha eliminado el tipo de patilla especificado con exito.');
                 }
             }else
-                return redirect('/loadprecargado')->with('message', 'Tiene que especificar tipo para realizar operacion sobre patillas.');
-        }
+                return redirect('/loadprecargado')->with('Errormessage', 'Tiene que especificar tipo para realizar operacion sobre patillas.');
+        }else
+            return redirect('/loadprecargado')->with('Errormessage', 'Se necesita permisos de administrador para realizar esta accion.'); 
     }
     
     private function eliminarPatilla($patilla){

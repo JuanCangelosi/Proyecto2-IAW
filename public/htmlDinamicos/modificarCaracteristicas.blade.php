@@ -30,7 +30,8 @@
                 
                 </div>
                 <div>  
-                    <button type="submit" name="button" value="update" class="btn btn-primary">Modificar</button>  <button type="submit" name="button" value="eliminar" class="btn btn-primary btn_color3">Eliminar</button>
+                    <button type="button" name="button" value="update" class="btn btn-primary" onclick="confUpdate('form-upModelo')">Modificar</button>   
+                    <button type="button" name="button" value="update" class="btn btn-primary btn_color3" onclick="confDelete('form-upModelo')">Eliminar</button>
                 </div>  
             </form>
               
@@ -59,8 +60,8 @@
                     
                 </div>
                 <div>
-                    <button type="submit" name="button" value="update" class="btn btn-primary">Modificar</button>  
-                    <button type="submit" name="button" value="eliminar" class="btn btn-primary btn_color3">Eliminar Tipo</button>
+                    <button type="button" name="button" value="update" class="btn btn-primary" onclick="confUpdate('form-upVidrio')">Modificar</button>
+                    <button type="button" name="button" value="eliminar" class="btn btn-primary btn_color3" onclick="confDelete('form-upVidrio')">Eliminar Tipo</button>
                 </div>
               </form>
           </div>
@@ -87,8 +88,8 @@
                     
                 </div>
                 <div>
-                    <button type="submit" name="button" value="update" class="btn btn-primary">Modificar</button>  
-                    <button type="submit" name="button" value="eliminar" class="btn btn-primary btn_color3">Eliminar Tipo</button>
+                    <button type="button" name="button" value="update" class="btn btn-primary" onclick="confUpdate('form-upMarco')">Modificar</button>
+                    <button type="button" name="button" value="eliminar" class="btn btn-primary btn_color3" onclick="confDelete('form-upMarco')">Eliminar Tipo</button>
                 </div>
               </form>
           </div>
@@ -115,8 +116,8 @@
                     
                 </div>
                 <div>
-                    <button type="submit" name="button" value="update" class="btn btn-primary">Modificar</button>  
-                    <button type="submit" name="button" value="eliminar" class="btn btn-primary btn_color3">Eliminar Tipo</button>
+                    <button type="button" name="button" value="update" class="btn btn-primary" onclick="confUpdate('form-upPatilla')">Modificar</button>
+                    <button type="button" name="button" value="eliminar" class="btn btn-primary btn_color3" onclick="confDelete('form-upPatilla')">Eliminar Tipo</button>
                 </div>
               </form>
           </div>
@@ -147,7 +148,8 @@
                         </div>
                 </div>
                 <div>
-                    <button type="submit" name="button" value="update" class="btn btn-primary">Modificar</button>  <button type="submit" name="button" value="eliminar" class="btn btn-primary btn_color3">Eliminar</button>
+                    <button type="button" name="button" value="update" class="btn btn-primary" onclick="confUpdate('form-upMedida')">Modificar</button>
+                    <button type="button" name="button" value="eliminar" class="btn btn-primary btn_color3" onclick="confDelete('form-upMedida')">Eliminar</button>
                 </div>
             </form>
         </div>

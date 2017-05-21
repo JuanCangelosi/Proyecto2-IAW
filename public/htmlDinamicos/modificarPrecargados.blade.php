@@ -54,8 +54,8 @@
                 
                     <div>  
                         
-                    <button type="submit" name="button" value="update" class="btn btn-primary">Modificar</button>  
-                    <button type="submit" name="button" value="eliminar" class="btn btn-primary btn_color3">Eliminar</button>
+                    <button type="button" name="button" value="update" class="btn btn-primary" onclick="confUpdate('form-delPrecargado')">Modificar</button>
+                    <button type="button" name="button" value="eliminar" class="btn btn-primary btn_color3" onclick="confDelete('form-delPrecargado')">Eliminar</button>
                 </div>  
            
             </form>

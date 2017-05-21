@@ -8,26 +8,35 @@ use Illuminate\Support\Facades\Auth;
 class TamanoController extends Controller
 {
     public function cargarTamano(Request $request){
-        $request = $request->all();
-        $tamano = new Tamano;
-        $tamano->medida = $request['nombre_tamano'];
-        $tamano->ancho_lente = $request['AnchoPuente'];
-        $tamano->ancho_puente = $request['AnchoLente'];
-        $tamano->save();
-        return redirect('/loadprecargado')->with('message', 'Se ha cargado Tamaño con exito.');
+        if(Auth::check() && Auth::user()->isAdmin()){
+            $request = $request->all();
+            $tamano = new Tamano;
+            $tamano->medida = $request['nombre_tamano'];
+            $tamano->ancho_lente = $request['AnchoPuente'];
+            $tamano->ancho_puente = $request['AnchoLente'];
+            $tamano->save();
+            return redirect('/loadprecargado')->with('message', 'Se ha cargado Tamaño con exito.');
+        }else
+            return redirect('/loadprecargado')->with('Errormessage', 'Se necesita permisos de administrador para realizar esta accion.'); 
     }
     
 
     public function modificarTamano(Request $request){
-        $request = $request->all();
-        $tamano= Tamano::where('medida', $request['nombre_medida'])->get()->first();
-        if($request['button']=='update'){
-            $this->updateTamano($tamano, $request);
-            return redirect('/loadprecargado')->with('message', 'Se ha modificado tamaño con exito.');
-        }else{
-            $this->eliminarTamano($tamano, $request);
-            return redirect('/loadprecargado')->with('message', 'Se ha eliminado tamaño con exito.');  
-        }
+        if(Auth::check() && Auth::user()->isAdmin()){
+            $request = $request->all();
+            if(array_key_exists('nombre_medida', $request)){
+                $tamano= Tamano::where('medida', $request['nombre_medida'])->get()->first();
+                if($request['button']=='update'){
+                    $this->updateTamano($tamano, $request);
+                    return redirect('/loadprecargado')->with('message', 'Se ha modificado tamaño con exito.');
+                }else{
+                    $this->eliminarTamano($tamano, $request);
+                    return redirect('/loadprecargado')->with('message', 'Se ha eliminado tamaño con exito.');  
+                }
+            }else
+                 return redirect('/loadprecargado')->with('Errormessage', 'Tiene que especificar tipo para realizar operacion sobre tamaños.');
+        }else
+             return redirect('/loadprecargado')->with('Errormessage', 'Se necesita permisos de administrador para realizar esta accion.'); 
     }
     
     

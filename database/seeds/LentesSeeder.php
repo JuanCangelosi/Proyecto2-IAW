@@ -7,6 +7,7 @@ use App\Marco;
 use App\Patilla;
 use App\Lente;
 use App\Tamano;
+use App\User; 
 
 class LentesSeeder extends Seeder
 {
@@ -22,7 +23,7 @@ class LentesSeeder extends Seeder
         DB::table('marcos')->delete();
         DB::table('vidrios')->delete();
         DB::table('tamanos')->delete();
-        //DB::table('lentes')->delete();
+        DB::table('users')->delete();
         
         
         Modelo::create(['modelo' => 'Original_Wayfarer', 'precio_base' => '100', 'detalle' => 'Las Caniex Original Wayfarer® Classic son el modelo más reconocible en la historia de las gafas de sol. Desde su diseño inicial en 1952, las Wayfarer Classic fueron popularizándose entre celebridades, músicos, artistas y personas con un sentido de la moda impecable. Como estilo emblemático de gafas de sol, las Original Wayfarer Classic siempre constituyen una auténtica declaración de intenciones.']);
@@ -46,6 +47,8 @@ class LentesSeeder extends Seeder
         
         Tamano::create(['medida' => 'pequeno', 'ancho_lente' => '100', 'ancho_puente' => '100']);
         Tamano::create(['medida' => 'grande', 'ancho_lente' => '100', 'ancho_puente' => '100']);
+        
+        User::create(['name' => 'administrador', 'is_admin' => true, 'email' => 'admin@istrador.com', 'password' => bcrypt('admin')]);
 		
 		//Lente::create(['lente_id' => '1']);
         //Lente::create(['lente_id' => '2']);

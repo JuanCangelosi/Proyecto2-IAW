@@ -127,10 +127,6 @@
                     @if (Auth::check())
                         @if (Auth::user()->isAdmin())
                 <div class="row col-md-10">                        
-                        <div class="col-md-2 center-btn btn btn-primary btn_color1" id="btn_load">Cargar
-                        </div>
-                        <div class="col-md-2 center-btn btn btn-primary" id="btn_save">Guardar
-                        </div>
                         <div class="col-md-2 center-btn btn btn-primary btn_color3" id="btn_download">Descargar
                         </div>
                         <div class="col-md-3 center-btn btn btn-primary btn_color4 btn-shortspace" id="btn_precargado">Guardar Como Precargado

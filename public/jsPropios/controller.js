@@ -152,18 +152,21 @@ function escribirDetalle(lenteSeleccionado) {
 */
 
 function guardarDatos() {
+    if(seleccion.modelo != ""){
         setPrecio(json);
         localStorage.setItem("guardar",JSON.stringify(seleccion));
+    }
 }
 
 function cargarDatos() {
     var datos = JSON.parse(localStorage.getItem("guardar"));
-    console.log(datos);
-    recuperarDatos(datos);
+    if(datos){
+        recuperarDatos(datos);
+    }
 }
 
 function generarPDF() {
-    //$.getJSON("jspropios/caracteristicas.json", function(json) {
+    if(seleccion.modelo!= "") {
         setPrecio(json);
        // create a document and pipe to a blob
         var doc = new PDFDocument();
@@ -220,8 +223,7 @@ function generarPDF() {
             // iframe.src = stream.toBlobURL('application/pdf');
         });
         
-    //     }
-    //          );
+        }
 }
 
 
@@ -461,15 +463,17 @@ function obtenerPrecargado(id){
 }
 
 function guardarPrecargado(){
-    setPrecio(json);
-    $.ajax({
-        type: 'POST',
-        url: "/guardarprecargado",
-        data:  seleccion,
-        success: function () {
-           //guardarPrecargado(data);
-        }
-    });
+    if(seleccion.modelo != ""){
+        setPrecio(json);
+        $.ajax({
+            type: 'POST',
+            url: "/guardarprecargado",
+            data:  seleccion,
+            success: function () {
+               //guardarPrecargado(data);
+            }
+        });
+    }
 }
 
 
@@ -493,15 +497,16 @@ function recuperarDatos(datos){
 }
 
 function guardarDatosReg() {
+    if(seleccion.modelo != ""){
         setPrecio(json);
          $.ajax({
         type: 'POST',
         url: "/guardarLente",
         data:  seleccion,
         success: function () {
-           //guardarPrecargado(data);
         }
     });
+    }
 }
 
 function getGuardados(){

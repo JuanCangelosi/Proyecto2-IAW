@@ -39,15 +39,17 @@ class LenteController extends Controller
     }
     
     public function guardarPrecargado(Request $request){
-        $lente = new Lente;
-        $lente->modelo = $request->modelo;
-        $lente->detalle = $request->detalle;
-        $lente->precio_base = $request->precio_base;
-        $lente->vidrio = serialize($request->vidrio);
-        $lente->marco = serialize($request->marco);
-        $lente->patilla = serialize($request->patillas);
-        $lente->tamano = serialize($request->tamano);
-        $lente->save();
+        if (Auth::check() && Auth::user()->isAdmin()){
+            $lente = new Lente;
+            $lente->modelo = $request->modelo;
+            $lente->detalle = $request->detalle;
+            $lente->precio_base = $request->precio_base;
+            $lente->vidrio = serialize($request->vidrio);
+            $lente->marco = serialize($request->marco);
+            $lente->patilla = serialize($request->patilla);
+            $lente->tamano = serialize($request->tamano);
+            $lente->save();
+        }
     }
     
     public function obtenerPrecargado(Request $request){
@@ -78,23 +80,28 @@ class LenteController extends Controller
     }
     
     public function guardarLente(Request $request){
-        $lente = new LenteUsuario;
-        $lente->id_usuario = Auth::user()->id;
-        $lente->modelo = $request->modelo;
-        $lente->detalle = $request->detalle;
-        $lente->precio_base = $request->precio_base;
-        $lente->vidrio = serialize($request->vidrio);
-        $lente->marco = serialize($request->marco);
-        $lente->patilla = serialize($request->patillas);
-        $lente->tamano = serialize($request->tamano);
-        $lente->save();
+        if (Auth::check()){
+            $lente = new LenteUsuario;
+            $lente->id_usuario = Auth::user()->id;
+            $lente->modelo = $request->modelo;
+            $lente->detalle = $request->detalle;
+            $lente->precio_base = $request->precio_base;
+            $lente->vidrio = serialize($request->vidrio);
+            $lente->marco = serialize($request->marco);
+            $lente->patilla = serialize($request->patilla);
+            $lente->tamano = serialize($request->tamano);
+            $lente->save();
+        }
     }
     
     public function getLentesGuardados(){
-        $id_usuario = Auth::user()->id;
-        if(request()->ajax())
-            $retorno= LenteUsuario::where('id_usuario',$id_usuario)->get();
-            return $retorno;
+        if (Auth::check()){
+            $id_usuario = Auth::user()->id;
+            if(request()->ajax()){
+                $retorno= LenteUsuario::where('id_usuario',$id_usuario)->get();
+                return $retorno;
+            }
+        }
     }
     /*
     public function eliminarLenteGuardado(Request $request){
@@ -103,4 +110,15 @@ class LenteController extends Controller
             $lente->delete();
     }
     */
+    
+     public function obtenerGuardado(Request $request){
+        if (Auth::check()){
+            $lente = LenteUsuario::find($request->id);
+            $lente->vidrio = unserialize($lente->vidrio);
+            $lente->marco = unserialize($lente->marco);
+            $lente->patilla = unserialize($lente->patilla);
+            $lente->tamano = unserialize($lente->tamano);
+            return $lente;
+        }
+    }
 }

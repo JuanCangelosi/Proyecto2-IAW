@@ -5,7 +5,7 @@ var seleccion = {es_especial: "NO",
         vidrio: {tipo: "", color: "", precio: ""},
 		marco: {tipo: "", color: "", precio: ""},
 		tamano: {medida: "", ancho_lente:"", ancho_puente:""},
-		patillas: {tipo: "", color: "", precio: "", grabado:[]
+		patilla: {tipo: "", color: "", precio: "", grabado:[]
 					},
 	}
 /*
@@ -177,24 +177,24 @@ function generarPDF() {
         doc.fontSize(15)
            .text('Detalle:'+seleccion.detalle, 100, 120);
         doc.fontSize(15)
-           .text('Precio Total: $'+(seleccion.precio_base+seleccion.vidrio.precio+seleccion.marco.precio+seleccion.patillas.precio), 100, 140);
+           .text('Precio Total: $'+(seleccion.precio_base+seleccion.vidrio.precio+seleccion.marco.precio+seleccion.patilla.precio), 100, 140);
         doc.fontSize(15)
            .text('Tipo de Vidrio: '+seleccion.vidrio.tipo, 100, 160);
         doc.fontSize(15)
            .text('Tipo de Marco: '+seleccion.marco.tipo, 100, 180);
         doc.fontSize(15)
-           .text('Tipo de Patilla: '+seleccion.patillas.tipo, 100, 200);
+           .text('Tipo de Patilla: '+seleccion.patilla.tipo, 100, 200);
 
         // an SVG path
         doc.scale(0.5,0.5)
            .translate(300, 500)
            .path($('#front').attr('d'))
-           .fill(seleccion.marco.color, 'even-odd')
+           .fill("#"+seleccion.marco.color, 'even-odd')
            .path($('#temples').attr('d'))
-            .fill(seleccion.patillas.color, 'even-odd')
+            .fill("#"+seleccion.patilla.color, 'even-odd')
            .path($('#lns').attr('d'))
             .opacity(0.8)
-           .fill(seleccion.vidrio.color, 'even-odd')
+           .fill("#"+seleccion.vidrio.color, 'even-odd')
            .clip()
            .restore();
     
@@ -271,12 +271,12 @@ function setPrecio(json){
     
      i=0;
     termine=false;
-    var tipoPatillaSeleccionada= seleccion.patillas.tipo;
+    var tipoPatillaSeleccionada= seleccion.patilla.tipo;
     
     while( i< json.patillas.length && !termine){
         termine= (json.patillas[i].tipo == tipoPatillaSeleccionada);
         if(termine){
-            seleccion.patillas.precio=json.patillas[i].precio;
+            seleccion.patilla.precio=json.patillas[i].precio;
         }
         else{
             i++;
@@ -439,8 +439,8 @@ function chngPatillas(color){
     window.location.hash = partes[0]+'.'+partes[1]+'.'+ partes[2]+'.' + color ;
     $("#temples").attr('class', color);
     var tipoYColor= color.split("_");
-    seleccion.patillas.tipo = tipoYColor[1];
-    seleccion.patillas.color = tipoYColor[2];
+    seleccion.patilla.tipo = tipoYColor[1];
+    seleccion.patilla.color = tipoYColor[2];
 }
 
 /*  
@@ -487,7 +487,7 @@ function getPrecargados(){
 function recuperarDatos(datos){
     mostrarModelo(datos.modelo,'lns_'+datos.vidrio.tipo+'_'+datos.vidrio.color,
                   'frnt_'+datos.marco.tipo+'_'+datos.marco.color,
-                  'tmp_'+datos.patillas.tipo+'_'+datos.patillas.color);
+                  'tmp_'+datos.patilla.tipo+'_'+datos.patilla.color);
             escribirModelo(datos.modelo);
             escribirDetalle(datos.modelo);
 }

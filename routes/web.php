@@ -36,6 +36,7 @@ Route::get('/obtenerprecargado', 'LenteController@obtenerPrecargado');
 Route::post('/guardarprecargado', 'LenteController@guardarPrecargado');
 Route::get('/obteneridprecargados', 'LenteController@obtenerIDPrecargados');
 Route::post('/guardarLente', 'LenteController@guardarLente');
+Route::get('/obtenerGuardado', 'LenteController@obtenerGuardado');
 
 Route::get('/loadprecargado', 'LoadPrecargadoController@index');
 

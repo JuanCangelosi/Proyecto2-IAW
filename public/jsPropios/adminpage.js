@@ -126,7 +126,7 @@ function getPrecargados(){
      $.get('/precargados',function(precargados){
         $.each(precargados, function(i, pre) {
         $('#sel_dprec').append('<option value="'+pre.id+'">ID: '+pre.id+' | MOD: '+pre.modelo+' | CREADO: '+pre.created_at+' | MODIFICADO: '+pre.updated_at+'</option>');
-        $("#sel_spat").val('0');
+        $("#sel_dprec").val('0');
         });
     });
 }

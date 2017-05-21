@@ -429,7 +429,6 @@ function chngFront(color){
     var tipoYColor= color.split("_");
     seleccion.marco.tipo = tipoYColor[1];
     seleccion.marco.color = tipoYColor[2];
-    console.log(seleccion);
 }
 
 /*  

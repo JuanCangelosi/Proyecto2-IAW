@@ -10,15 +10,17 @@ class ModeloController extends Controller
 {
        
     public function cargarModelo(Request $request){
-        $request=$request->all();
-        // lo tratamos como arreglo, se maneja con los nombres definidos en los formularios. Te podes fijar haciendo return $request->all();, que nombre de clavele pone el arreglo.
-        $modelo = new Modelo;
-        $modelo->modelo = $request['nombre_modelo'];
-        $modelo->detalle = $request['descripcionModelo'];
-        $modelo->precio_base = $request['precio_modelo'];
-        
-        $modelo->save();
-        return redirect('/loadprecargado')->with('message', 'Se ha cargado Modelo con exito.');
+         if(Auth::check() && Auth::user()->isAdmin()){
+            $request=$request->all();
+            // lo tratamos como arreglo, se maneja con los nombres definidos en los formularios. Te podes fijar haciendo return $request->all();, que nombre de clavele pone el arreglo.
+            $modelo = new Modelo;
+            $modelo->modelo = $request['nombre_modelo'];
+            $modelo->detalle = $request['descripcionModelo'];
+            $modelo->precio_base = $request['precio_modelo'];
+
+            $modelo->save();
+            return redirect('/loadprecargado')->with('message', 'Se ha cargado Modelo con exito.');
+         }
     }
   
     public function modificarModelo(Request $request){
@@ -41,6 +43,7 @@ class ModeloController extends Controller
     }
     
     private function updateModelo($modelo, $request){
+         if(Auth::check() && Auth::user()->isAdmin()){
         if($request['nombre_modeloModif']!=null)
             $modelo->modelo=$request['nombre_modeloModif'];
         if($request['descripcionModelo']!=null)
@@ -48,11 +51,14 @@ class ModeloController extends Controller
         if($request['precio_modelo']!=null)
             $modelo->precio_base = $request['precio_modelo'];  
         $modelo->save();
+         }
         
     }
       
     private function eliminarModelo($modelo){
-        $modelo->delete();
+         if(Auth::check() && Auth::user()->isAdmin()){
+            $modelo->delete();
+         }
     }
     
     public function getModelos(){

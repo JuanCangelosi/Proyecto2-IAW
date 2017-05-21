@@ -174,16 +174,16 @@ function generarPDF() {
         doc.image(imagedata, 100, 100);
         doc.fontSize(25)
            .text('Modelo:'+seleccion.modelo, 100, 80);
-        doc.fontSize(15)
+        doc.fontSize(7)
            .text('Detalle:'+seleccion.detalle, 100, 120);
         doc.fontSize(15)
-           .text('Precio Total: $'+(seleccion.precio_base+seleccion.vidrio.precio+seleccion.marco.precio+seleccion.patilla.precio), 100, 140);
+           .text('Precio Total: $'+(seleccion.precio_base+seleccion.vidrio.precio+seleccion.marco.precio+seleccion.patilla.precio), 100, 160);
         doc.fontSize(15)
-           .text('Tipo de Vidrio: '+seleccion.vidrio.tipo, 100, 160);
+           .text('Tipo de Vidrio: '+seleccion.vidrio.tipo, 100, 180);
         doc.fontSize(15)
-           .text('Tipo de Marco: '+seleccion.marco.tipo, 100, 180);
+           .text('Tipo de Marco: '+seleccion.marco.tipo, 100, 200);
         doc.fontSize(15)
-           .text('Tipo de Patilla: '+seleccion.patilla.tipo, 100, 200);
+           .text('Tipo de Patilla: '+seleccion.patilla.tipo, 100, 220);
 
         // an SVG path
         doc.scale(0.5,0.5)
@@ -215,7 +215,7 @@ function generarPDF() {
         stream.on('finish', function() {
 
         var blob = stream.toBlob('application/pdf');
-        saveData(blob, 'aa.pdf');
+        saveData(blob, 'caniexCertificate.pdf');
 
             // iframe.src = stream.toBlobURL('application/pdf');
         });

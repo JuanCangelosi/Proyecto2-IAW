@@ -17,7 +17,7 @@ class TablaComponentes extends Migration
             $table->increments('id');
             $table->string('modelo');
             $table->double('precio_base');
-            $table->string('detalle');
+            $table->string('detalle',1000);
             $table->timestamps();
         });
         
@@ -25,7 +25,7 @@ class TablaComponentes extends Migration
             $table->increments('id');
             $table->string('tipo');
             $table->double('precio');
-            $table->string('colores');
+            $table->string('colores',1000);
             $table->timestamps();
         });
         
@@ -33,7 +33,7 @@ class TablaComponentes extends Migration
             $table->increments('id');
             $table->string('tipo');
             $table->double('precio');
-            $table->string('colores');
+            $table->string('colores',1000);
             $table->timestamps();
         });
         
@@ -41,7 +41,7 @@ class TablaComponentes extends Migration
             $table->increments('id');
             $table->string('tipo');
             $table->double('precio');
-            $table->string('colores');
+            $table->string('colores',1000);
             $table->timestamps();
         });
         
@@ -58,11 +58,11 @@ class TablaComponentes extends Migration
             $table->unsignedInteger('id_usuario');
             $table->string('modelo');
             $table->string('precio_base');
-            $table->string('detalle');
-            $table->string('vidrio');
-            $table->string('marco');
-            $table->string('patilla');
-            $table->string('tamano');
+            $table->string('detalle',1000);
+            $table->string('vidrio',1000);
+            $table->string('marco',1000);
+            $table->string('patilla',1000);
+            $table->string('tamano',1000);
             $table->timestamps();
         });
     }

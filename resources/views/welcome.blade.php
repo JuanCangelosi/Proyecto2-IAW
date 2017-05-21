@@ -36,7 +36,7 @@
 @section ('navbar-toggleDer') 
  @if (Auth::check())
     @if(Auth::user()->isAdmin())
-    <li> <a href="{{ url('/loadprecargado') }}" class="btn btn-outline-success my-2 my-sm-0">Cargar precargado</a></li>
+    <li> <a href="{{ url('/loadprecargado') }}" class="btn btn-outline-success my-2 my-sm-0">Panel Admin</a></li>
     @endif
 @endif
 @endsection

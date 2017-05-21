@@ -3,7 +3,7 @@
 
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-              <a class="navbar-brand" href="{{ url('/') }}"><img class="img-responsive" src="images/Caniexlogo.png" id="logo" alt="logotipo Caniex"></a>
+              <a class="navbar-brand" href="{{ url('/home') }}"><img class="img-responsive" src="images/Caniexlogo.png" id="logo" alt="logotipo Caniex"></a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->

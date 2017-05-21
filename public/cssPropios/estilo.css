@@ -187,26 +187,32 @@
 
 .btn_color1{
 	background-color: #139675;
+	border-color: #139675;
 }
 
 .btn_color1:hover{
 	background-color: #006231;
+    border-color: #006231;
 }
 
 .btn_color3{
 	background-color: #f44336;
+    border-color: #f44336;
 }
 
 .btn_color3:hover{
 	background-color: #E52A1F;
+    border-color: #E52A1F;
 }
 
 .btn_color4{
 	background-color: #C673B3;
+    border-color: #C673B3;
 }
 
 .btn_color4:hover{
 	background-color: #A5478F;
+    border-color: #A5478F;
 }
 
 #table_acc{

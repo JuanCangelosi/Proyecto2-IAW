@@ -143,10 +143,6 @@
 
  @include('layouts.js')
 
-   
-   
-    <!-- Theme JavaScript -->
-    <script src="js/agency.min.js"></script>
 
 </body>
 
